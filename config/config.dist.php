@@ -40,11 +40,11 @@ return [
 
         # Default timezone.
         # Options: Look up here https://php.net/manual/en/timezones.php
-        'default.timezone' => 'Europe/London',
+        'default.timezone' => 'America/Sao_Paulo',
 
         # Default language.
         # Options: Find your language in the lang directory
-        'default.language' => 'en_us',
+        'default.language' => 'pt_br',
 
 
         ##########################
