@@ -8,6 +8,8 @@ insert into `layouts` values (1, 'America/New_York', 0);
 
 insert into `time_blocks` (`availability_code`, `layout_id`, `start_time`, `end_time`) values
 (2, 1, '00:00', '07:00'),
+(1, 1, '07:00', '07:30'),
+(1, 1, '07:30', '08:00'),
 (1, 1, '08:00', '08:30'),
 (1, 1, '08:30', '09:00'),
 (1, 1, '09:00', '09:30'),

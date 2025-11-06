@@ -745,10 +745,10 @@ return [
 
         'api' => [
             # Enable or disable the API (true/false)
-            'enabled' => false,
+            'enabled' => true,
 
             # Allow users to self-register via the API (true/false)
-            'registration.allow.self' => false,
+            'registration.allow.self' => true,
 
             # If set, a user must belong to this group to authenticate via the API
             # Admin users are exempt
