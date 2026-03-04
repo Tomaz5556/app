@@ -26,11 +26,9 @@ class en_us extends Language
         $dates['short_reservation_date'] = 'n/j/y g:i A';
         $dates['dashboard'] = 'D, n/d Y g:i A';
         $dates['period_time'] = 'g:i A';
-        $dates['timepicker'] = 'h:i a';
         $dates['mobile_reservation_date'] = 'n/j g:i A';
         $dates['general_date_js'] = 'mm/dd/yy';
         $dates['general_time_js'] = 'h:mm tt';
-        $dates['timepicker_js'] = 'h:i a';
         $dates['momentjs_datetime'] = 'M/D/YY h:mm A';
         $dates['calendar_time'] = 'h:mmt';
         $dates['calendar_dates'] = 'M d';
@@ -96,6 +94,8 @@ class en_us extends Language
         $strings['Error'] = 'Error';
         $strings['ReturnToPreviousPage'] = 'Return to the last page that you were on';
         $strings['UnknownError'] = 'Unknown Error';
+        $strings['DatabaseConnectionError'] = 'Unable to connect to the database server.<br/>Ask the website administrator to verify the database host, username, and password in <code>config/config.php</code>.';
+        $strings['DatabaseNotFoundError'] = 'Unable to select the configured database.<br/>Ask the website administrator to verify the database name in <code>config/config.php</code> and confirm the database has been created/initialized.';
         $strings['InsufficientPermissionsError'] = 'You do not have permission to access this resource';
         $strings['MissingReservationResourceError'] = 'A resource was not selected';
         $strings['MissingReservationScheduleError'] = 'A schedule was not selected';
@@ -725,6 +725,7 @@ class en_us extends Language
         $strings['DeleteBlackoutsBefore'] = 'Delete blackout times before';
         $strings['DeletedReservations'] = 'Deleted Reservations';
         $strings['DeleteReservationsBefore'] = 'Delete reservations before';
+        $strings['PermanentlyPurgeAllDeletedReservations'] = 'Permanently purge all deleted reservations';
         $strings['SwitchToACustomLayout'] = 'Switch to a custom layout';
         $strings['SwitchToAStandardLayout'] = 'Switch to a standard layout';
         $strings['ThisScheduleUsesACustomLayout'] = 'This schedule uses a custom layout';
@@ -842,6 +843,8 @@ class en_us extends Language
 
         // Errors
         $strings['LoginError'] = 'We could not match your username or password';
+        $strings['LdapConnectionErrorMessage'] = 'Could not connect to the LDAP server. Please contact your administrator.';
+        $strings['LdapDependencyMissingMessage'] = 'LDAP authentication is not available because pear/net_ldap2 is missing. Install it with: composer require pear/net_ldap2';
         $strings['ReservationFailed'] = 'Your reservation could not be made';
         $strings['MinNoticeError'] = 'This reservation requires advance notice. The earliest date and time that can be reserved is %s.';
         $strings['MinNoticeErrorUpdate'] = 'Changing this reservation requires advance notice. Reservations before %s are not allowed to be changed.';
@@ -1069,8 +1072,8 @@ class en_us extends Language
         //End View Resource
 
         //Datatables
-        $strings['Info'] = "Showing page _PAGE_ of _PAGES_ of _MAX_";
-        $strings['LengthMenu'] = "Display _MENU_ records per page";
+        $strings['Info'] = 'Showing page _PAGE_ of _PAGES_ of _MAX_';
+        $strings['LengthMenu'] = 'Display _MENU_ records per page';
         //End Datatables
 
         $this->Strings = $strings;

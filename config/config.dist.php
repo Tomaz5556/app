@@ -19,7 +19,8 @@ return [
         # The public name of the application
         'app.title' => 'LibreBooking',
 
-        # The public name of the application
+        # Enable or disable debug mode for the application
+        # if enabled it will enable 'display_errors' and 'display_startup_errors'
         'app.debug' => false,
 
         # Administrator email address
@@ -136,6 +137,9 @@ return [
             # SMTP encryption
             # Options: tls, ssl
             'smtp.secure' => '',
+
+            # SMTP Auto TLS, if an unencrypted SMTP connection should attempt to use STARTTLS
+            'smtp.autotls' => true,
 
             # Enable SMTP authentication (true/false)
             'smtp.auth' => true,
@@ -295,7 +299,7 @@ return [
         ##########################################
 
         'reservation' => [
-            # Prevent participants from being added to reservations (true/false)
+            # Disable reservation participation/invitations and hide participant/invitee lists in the reservation UI (true/false)
             'prevent.participation' => false,
 
             # Disable recurring reservations (true/false)
@@ -307,7 +311,7 @@ return [
             # Enable a waitlist for fully booked reservations (true/false)
             'allow.wait.list' => false,
 
-            # Restrict start times (e.g., 'future', 'none', 'same_day')
+            # Restrict start times (e.g., 'future', 'none', 'current')
             'start.time.constraint' => 'future',
 
             # Require approval when an existing reservation is updated (true/false)
@@ -342,10 +346,10 @@ return [
             # Enable reminder notifications for upcoming reservations (true/false)
             'reminders.enabled' => false,
 
-            # Default reminder time before reservation start (in minutes)
+            # Default reminder time before reservation start (e.g., '15 minutes', '1 hours', '1 days')
             'default.start.reminder' => '',
 
-            # Default reminder time before reservation end (in minutes)
+            # Default reminder time before reservation end (e.g., '15 minutes', '1 hours', '1 days')
             'default.end.reminder' => '',
         ],
 
@@ -440,6 +444,9 @@ return [
         ##########################################
 
         'tablet.view' => [
+            # Allow users to make reservations in the tablet view (true/false)
+            'allow.reservations' => true,
+
             # Allow guest users to make reservations in tablet view (true/false)
             'allow.guest.reservations' => false,
 

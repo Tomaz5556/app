@@ -8,10 +8,15 @@ class LdapOptions
 
     public function __construct()
     {
-        require_once(dirname(__FILE__) . '/Ldap.config.php');
+        $configPath = dirname(__FILE__) . '/Ldap.config.php';
+        if (!file_exists($configPath) && getenv('APP_ENV') === 'testing') {
+            $configPath = dirname(__FILE__) . '/Ldap.config.dist.php';
+        }
+
+        require_once($configPath);
 
         Configuration::Instance()->Register(
-            dirname(__FILE__) . '/Ldap.config.php',
+            $configPath,
             '',
             LdapConfigKeys::CONFIG_ID,
             false,
@@ -78,7 +83,7 @@ class LdapOptions
 
     public function IsLdapDebugOn()
     {
-        return $this->GetConfig('ldap.debug.enabled', new BooleanConverter());
+        return $this->GetConfig(LdapConfigKeys::DEBUG_ENABLED, new BooleanConverter());
     }
 
     public function Attributes()

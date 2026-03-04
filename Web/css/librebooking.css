@@ -283,10 +283,9 @@ fieldset:disabled .btn {
     z-index: 5000;
 }
 
-li.ui-timepicker-selected,
-.ui-timepicker-list li:hover,
-.ui-timepicker-list .ui-timepicker-selected:hover {
-    background: var(--primary);
+.enforce-days-inner {
+    min-width: 420px;
+    white-space: nowrap;
 }
 
 .updateCustomAttribute,
@@ -658,6 +657,16 @@ input.mid-number {
     color: var(--text-color-btn) !important;
 }
 
+.flatpickr-monthDropdown-months {
+    background-color: var(--primary);
+    color: #ffffff;
+}
+
+.flatpickr-monthDropdown-months option {
+    background-color: #ffffff;
+    color: #000000;
+}
+
 .flatpickr-weekdays {
     background: var(--primary) !important;
 }
@@ -688,6 +697,10 @@ span.flatpickr-weekday {
     background: var(--primary) !important;
     color: var(--text-color-btn) !important;
     border-color: var(--primary) !important;
+}
+
+.flatpickr-wrapper:has(.customAttribute) {
+    width: 100%;
 }
 
 .flatpickr-day.today {

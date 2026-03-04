@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 require_once(ROOT_DIR . 'Presenters/Admin/ManageUsersPresenter.php');
 require_once(ROOT_DIR . 'Pages/Admin/ManageUsersPage.php');
 
@@ -20,10 +22,7 @@ class ManageUsersPresenterTest extends TestBase
      */
     public $resourceRepo;
 
-    /**
-     * @var IManageUsersService|PHPUnit\Framework\MockObject\MockObject
-     */
-    public $manageUsersService;
+    public IManageUsersService&\PHPUnit\Framework\MockObject\MockObject $manageUsersService;
 
     /**
      * @var ManageUsersPresenter
@@ -35,20 +34,11 @@ class ManageUsersPresenterTest extends TestBase
      */
     public $attributeService;
 
-    /**
-     * @var PasswordEncryption
-     */
-    public $encryption;
+    public PasswordEncryption&\PHPUnit\Framework\MockObject\MockObject $encryption;
 
-    /**
-     * @var IGroupRepository|PHPUnit\Framework\MockObject\MockObject
-     */
-    public $groupRepository;
+    public IGroupRepository&\PHPUnit\Framework\MockObject\MockObject $groupRepository;
 
-    /**
-     * @var IGroupViewRepository|PHPUnit\Framework\MockObject\MockObject
-     */
-    public $groupViewRepository;
+    public IGroupViewRepository&\PHPUnit\Framework\MockObject\MockObject $groupViewRepository;
 
     public function setUp(): void
     {
@@ -225,9 +215,9 @@ class ManageUsersPresenterTest extends TestBase
         $this->page->_Attributes = $attributeFormElements;
 
         $extraAttributes = [
-                UserAttribute::Organization => $organization,
-                UserAttribute::Phone => $phone,
-                UserAttribute::Position => $position];
+            UserAttribute::Organization => $organization,
+            UserAttribute::Phone => $phone,
+            UserAttribute::Position => $position];
 
         $this->manageUsersService->expects($this->once())
                                  ->method('UpdateUser')
@@ -266,13 +256,11 @@ class ManageUsersPresenterTest extends TestBase
         $matcher = $this->exactly(2);
         $this->manageUsersService->expects($matcher)
                                  ->method('DeleteUser')
-                                 ->willReturnCallback(function ($userId) use ($matcher)
-                                 {
-                                    match ($matcher->numberOfInvocations())
-                                    {
-                                        1 => $this->assertEquals(809, $userId),
-                                        2 => $this->assertEquals(909, $userId)
-                                    };
+                                 ->willReturnCallback(function ($userId) use ($matcher) {
+                                     match ($matcher->numberOfInvocations()) {
+                                         1 => $this->assertEquals(809, $userId),
+                                         2 => $this->assertEquals(909, $userId)
+                                     };
                                  });
 
         $this->presenter->DeleteMultipleUsers();
@@ -323,9 +311,9 @@ class ManageUsersPresenterTest extends TestBase
                                      $this->equalTo($lang),
                                      $this->equalTo(Pages::DEFAULT_HOMEPAGE_ID),
                                      $this->equalTo([
-                                                               UserAttribute::Organization => null,
-                                                               UserAttribute::Phone => null,
-                                                               UserAttribute::Position => null]),
+                                         UserAttribute::Organization => null,
+                                         UserAttribute::Phone => null,
+                                         UserAttribute::Position => null]),
                                      $this->equalTo([new AttributeValue($attributeId, $attributeValue)])
                                  )
                                  ->willReturn($user);
@@ -364,17 +352,17 @@ class ManageUsersPresenterTest extends TestBase
         $this->assertCount(1, $rows);
 
         $row1 = $rows[0];
-        $this->assertEquals("u1", $row1->username);
-        $this->assertEquals("e1", $row1->email);
-        $this->assertEquals("f1", $row1->firstName);
-        $this->assertEquals("l1", $row1->lastName);
-        $this->assertEquals("p1", $row1->password);
-        $this->assertEquals("ph1", $row1->phone);
-        $this->assertEquals("o1", $row1->organization);
-        $this->assertEquals("po1", $row1->position);
-        $this->assertEquals("t1", $row1->timezone);
-        $this->assertEquals("l1", $row1->language);
-        $this->assertEquals(["g1"], $row1->groups);
+        $this->assertEquals('u1', $row1->username);
+        $this->assertEquals('e1', $row1->email);
+        $this->assertEquals('f1', $row1->firstName);
+        $this->assertEquals('l1', $row1->lastName);
+        $this->assertEquals('p1', $row1->password);
+        $this->assertEquals('ph1', $row1->phone);
+        $this->assertEquals('o1', $row1->organization);
+        $this->assertEquals('po1', $row1->position);
+        $this->assertEquals('t1', $row1->timezone);
+        $this->assertEquals('l1', $row1->language);
+        $this->assertEquals(['g1'], $row1->groups);
     }
 
     public function testDefaultsMissingColumns()
@@ -387,16 +375,16 @@ class ManageUsersPresenterTest extends TestBase
         $this->assertCount(1, $rows);
 
         $row1 = $rows[0];
-        $this->assertEquals("u1", $row1->username);
-        $this->assertEquals("e1", $row1->email);
-        $this->assertEquals("f1", $row1->firstName);
-        $this->assertEquals("l1", $row1->lastName);
-        $this->assertEquals("p1", $row1->password);
-        $this->assertEquals("", $row1->phone);
-        $this->assertEquals("", $row1->organization);
-        $this->assertEquals("", $row1->position);
-        $this->assertEquals("", $row1->timezone);
-        $this->assertEquals("", $row1->language);
+        $this->assertEquals('u1', $row1->username);
+        $this->assertEquals('e1', $row1->email);
+        $this->assertEquals('f1', $row1->firstName);
+        $this->assertEquals('l1', $row1->lastName);
+        $this->assertEquals('p1', $row1->password);
+        $this->assertEquals('', $row1->phone);
+        $this->assertEquals('', $row1->organization);
+        $this->assertEquals('', $row1->position);
+        $this->assertEquals('', $row1->timezone);
+        $this->assertEquals('', $row1->language);
         $this->assertEquals([], $row1->groups);
     }
 
@@ -410,16 +398,16 @@ class ManageUsersPresenterTest extends TestBase
         $this->assertCount(1, $rows);
 
         $row1 = $rows[0];
-        $this->assertEquals("u1", $row1->username);
-        $this->assertEquals("e1", $row1->email);
-        $this->assertEquals("", $row1->firstName);
-        $this->assertEquals("", $row1->lastName);
-        $this->assertEquals("", $row1->password);
-        $this->assertEquals("", $row1->phone);
-        $this->assertEquals("", $row1->organization);
-        $this->assertEquals("", $row1->position);
-        $this->assertEquals("", $row1->timezone);
-        $this->assertEquals("", $row1->language);
+        $this->assertEquals('u1', $row1->username);
+        $this->assertEquals('e1', $row1->email);
+        $this->assertEquals('', $row1->firstName);
+        $this->assertEquals('', $row1->lastName);
+        $this->assertEquals('', $row1->password);
+        $this->assertEquals('', $row1->phone);
+        $this->assertEquals('', $row1->organization);
+        $this->assertEquals('', $row1->position);
+        $this->assertEquals('', $row1->timezone);
+        $this->assertEquals('', $row1->language);
         $this->assertEquals([], $row1->groups);
     }
 
@@ -673,20 +661,17 @@ class FakeManageUsersPage extends FakeActionPageBase implements IManageUsersPage
 
     public function GetReservationColor()
     {
-        // TODO: Implement GetReservationColor() method.
-        return null;
+        return '';
     }
 
     public function GetValue()
     {
-        // TODO: Implement GetValue() method.
-        return null;
+        return '';
     }
 
     public function GetName()
     {
-        // TODO: Implement GetName() method.
-        return null;
+        return '';
     }
 
     public function ShowTemplateCSV($attributes)
@@ -696,8 +681,13 @@ class FakeManageUsersPage extends FakeActionPageBase implements IManageUsersPage
 
     public function GetImportFile()
     {
-        // TODO: Implement GetImportFile() method.
-        return null;
+        return new UploadedFile([
+            'name' => 'users.csv',
+            'tmp_name' => __FILE__,
+            'type' => 'text/csv',
+            'size' => filesize(__FILE__),
+            'error' => UPLOAD_ERR_OK,
+        ]);
     }
 
     public function SetImportResult($importResult)
@@ -707,8 +697,7 @@ class FakeManageUsersPage extends FakeActionPageBase implements IManageUsersPage
 
     public function GetInvitedEmails()
     {
-        // TODO: Implement GetInvitedEmails() method.
-        return null;
+        return '';
     }
 
     public function ShowExportCsv()
@@ -728,14 +717,12 @@ class FakeManageUsersPage extends FakeActionPageBase implements IManageUsersPage
 
     public function SendEmailNotification()
     {
-        // TODO: Implement SendEmailNotification() method.
-        return null;
+        return false;
     }
 
     public function GetUpdateOnImport()
     {
-        // TODO: Implement GetUpdateOnImport() method.
-        return null;
+        return false;
     }
 
     public function ShowUserUpdate(User $user, $attributes)

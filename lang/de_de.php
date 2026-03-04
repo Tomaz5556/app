@@ -57,6 +57,8 @@ class de_de extends en_gb
         $strings['Error'] = 'Fehler';
         $strings['ReturnToPreviousPage'] = 'Zurück zur vorigen Seite';
         $strings['UnknownError'] = 'Unbekannter Fehler';
+        $strings['DatabaseConnectionError'] = 'Verbindung zum Datenbankserver konnte nicht hergestellt werden.<br/>Bitten Sie den Website-Administrator, Host, Benutzername und Passwort der Datenbank in <code>config/config.php</code> zu prüfen.';
+        $strings['DatabaseNotFoundError'] = 'Die konfigurierte Datenbank konnte nicht ausgewählt werden.<br/>Bitten Sie den Website-Administrator, den Datenbanknamen in <code>config/config.php</code> zu prüfen und zu bestätigen, dass die Datenbank erstellt/initialisiert wurde.';
         $strings['InsufficientPermissionsError'] = 'Sie haben keinen Zugriff auf diese Ressource.';
         $strings['MissingReservationResourceError'] = 'Keine Ressource ausgewählt';
         $strings['MissingReservationScheduleError'] = 'Kein Terminplan ausgewählt';
@@ -683,6 +685,7 @@ class de_de extends en_gb
         $strings['DeleteBlackoutsBefore'] = 'Lösche Sperrzeiten älter als';
         $strings['DeletedReservations'] = 'Gelöschte Reservierungen';
         $strings['DeleteReservationsBefore'] = 'Lösche Reservierungen älter als';
+        $strings['PermanentlyPurgeAllDeletedReservations'] = 'Alle gelöschten Reservierungen endgültig löschen';
         $strings['SwitchToACustomLayout'] = 'Layout zu einem angepassten Layout ändern';
         $strings['SwitchToAStandardLayout'] = 'Layout zu einem Standardlayout ändern';
         $strings['ThisScheduleUsesACustomLayout'] = 'Dieser Terminplan nutzt ein angepasstes Layout';
@@ -796,6 +799,8 @@ class de_de extends en_gb
 
         // Errors
         $strings['LoginError'] = 'Benutzername oder Passwort falsch';
+        $strings['LdapConnectionErrorMessage'] = 'Es konnte keine Verbindung zum LDAP-Server hergestellt werden. Bitte kontaktieren Sie Ihren Administrator.';
+        $strings['LdapDependencyMissingMessage'] = 'Die LDAP-Authentifizierung ist nicht verfügbar, da pear/net_ldap2 fehlt. Installieren Sie es mit: composer require pear/net_ldap2';
         $strings['ReservationFailed'] = 'Ihre Reservierung konnte nicht angelegt werden';
         $strings['MinNoticeError'] = 'Diese Reservierung benötigt eine Vorankündigung. Der früheste zu reservierende Zeitpunkt ist %s.';
         $strings['MinNoticeErrorUpdate'] = 'Ändern dieser Reservierung benötigt eine Vorankündigung. Reservierungen vor %s dürfen nicht verändert werden.';

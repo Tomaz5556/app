@@ -312,6 +312,15 @@ class ConfigKeys
         'section' => 'phpmailer'
     ];
 
+    public const PHPMAILER_SMTP_AUTOTLS = [
+        'key' => 'phpmailer.smtp.autotls',
+        'type' => 'boolean',
+        'default' => true,
+        'label' => 'SMTP AutoTLS',
+        'description' => 'If an unencrypted SMTP connection should attempt to use STARTTLS',
+        'section' => 'phpmailer'
+    ];
+
     public const PHPMAILER_SMTP_AUTH = [
         'key' => 'phpmailer.smtp.auth',
         'type' => 'boolean',
@@ -691,8 +700,8 @@ class ConfigKeys
         'key' => 'reservation.prevent.participation',
         'type' => 'boolean',
         'default' => false,
-        'label' => 'Prevent Participation',
-        'description' => 'Prevent users from participating in reservations',
+        'label' => 'Disable Participation & Invitations',
+        'description' => 'Disable reservation participation/invitations and hide participant/invitee lists in the reservation UI',
         'section' => 'reservation'
     ];
     public const RESERVATION_PREVENT_RECURRENCE = [
@@ -727,10 +736,10 @@ class ConfigKeys
         'choices' => [
             'none' => 'Any time',
             'future' => 'Future',
-            'same_day' => 'Same day'
+            'current' => 'Current'
         ],
         'label' => 'Start Time Constraint',
-        'description' => 'Restrict start times. Options: future, any, same_day',
+        'description' => 'Restrict start times. Options: future, none, current',
         'section' => 'reservation'
     ];
     public const RESERVATION_UPDATES_REQUIRE_APPROVAL = [
@@ -799,8 +808,8 @@ class ConfigKeys
         'key' => 'reservation.default.start.reminder',
         'type' => 'string',
         'default' => '',
-        'label' => 'Default Start Reminder (minutes)',
-        'description' => 'Default start reservation reminder. format is ## interval. for example, 10 minutes, 2 hours, 6 days.',
+        'label' => 'Default reminder time before reservation start (e.g., \'15 minutes\', \'1 hours\', \'1 days\')',
+        'description' => 'Default start reservation reminder. Format is an interval using only minutes, hours, or days',
         'section' => 'reservation'
     ];
     # previously RESERVATION_DEFAULT_END_REMINDER
@@ -808,8 +817,8 @@ class ConfigKeys
         'key' => 'reservation.default.end.reminder',
         'type' => 'string',
         'default' => '',
-        'label' => 'Default End Reminder (minutes)',
-        'description' => 'Default end reservation reminder. format is ## interval. for example, 10 minutes, 2 hours, 6 days.',
+        'label' => 'Default reminder time before reservation end (e.g., \'15 minutes\', \'1 hours\', \'1 days\')',
+        'description' => 'Default end reservation reminder. Format is an interval using only minutes, hours, or days (e.g., 1 days)',
         'section' => 'reservation'
     ];
 
@@ -962,6 +971,14 @@ class ConfigKeys
     ];
 
     // Tablet View Options
+    public const TABLET_VIEW_ALLOW_RESERVATIONS = [
+        'key' => 'tablet.view.allow.reservations',
+        'type' => 'boolean',
+        'default' => true,
+        'label' => 'Allows reservations',
+        'description' => 'Allows users to make reservations in the tablet view',
+        'section' => 'tablet.view'
+    ];
 
     # previously TABLET_VIEW_ALLOW_GUESTS
     public const TABLET_VIEW_ALLOW_GUEST_RESERVATIONS = [

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 require_once(ROOT_DIR . 'WebServices/Controllers/ReservationSaveController.php');
 
 class ReservationSaveControllerTest extends TestBase
@@ -9,10 +11,7 @@ class ReservationSaveControllerTest extends TestBase
      */
     private $controller;
 
-    /**
-     * @var IReservationPresenterFactory
-     */
-    private $presenterFactory;
+    private IReservationPresenterFactory&\PHPUnit\Framework\MockObject\MockObject $presenterFactory;
 
     public function setUp(): void
     {

@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 require_once(ROOT_DIR . 'lib/Email/Messages/ReservationCreatedEmailAdmin.php');
 require_once(ROOT_DIR . 'lib/Email/Messages/ReservationUpdatedEmailAdmin.php');
 
@@ -133,7 +135,7 @@ class AdminEmailNotificationTest extends TestBase
         $expectedMessage1 = new ReservationUpdatedEmailAdmin($admin1, $owner, $reservation, $resource, $attributeRepo, $userRepo);
         $expectedMessage2 = new ReservationUpdatedEmailAdmin($admin2, $owner, $reservation, $resource, $attributeRepo, $userRepo);
 
-        $this->assertEquals(6, count($this->fakeEmailService->_Messages), "send one per person, no duplicates");
+        $this->assertEquals(6, count($this->fakeEmailService->_Messages), 'send one per person, no duplicates');
 
         $this->assertInstanceOf('ReservationUpdatedEmailAdmin', $this->fakeEmailService->_Messages[0]);
         $this->assertInstanceOf('ReservationUpdatedEmailAdmin', $this->fakeEmailService->_Messages[1]);
@@ -280,7 +282,7 @@ class AdminEmailNotificationTest extends TestBase
         $expectedMessage1 = new ReservationRequiresApprovalEmailAdmin($admin1, $owner, $reservation, $resource, $attributeRepo, $userRepo);
         $expectedMessage2 = new ReservationRequiresApprovalEmailAdmin($admin2, $owner, $reservation, $resource, $attributeRepo, $userRepo);
 
-        $this->assertEquals(6, count($this->fakeEmailService->_Messages), "send one per person, no duplicates");
+        $this->assertEquals(6, count($this->fakeEmailService->_Messages), 'send one per person, no duplicates');
 
         $this->assertInstanceOf('ReservationRequiresApprovalEmailAdmin', $this->fakeEmailService->_Messages[0]);
         $this->assertInstanceOf('ReservationRequiresApprovalEmailAdmin', $this->fakeEmailService->_Messages[1]);
@@ -339,7 +341,7 @@ class AdminEmailNotificationTest extends TestBase
 
         $expectedMessage1 = new ReservationDeletedEmailAdmin($admin1, $owner, $reservation, $resource, $attributeRepo, $userRepo);
 
-        $this->assertEquals(6, count($this->fakeEmailService->_Messages), "send one per person, no duplicates");
+        $this->assertEquals(6, count($this->fakeEmailService->_Messages), 'send one per person, no duplicates');
 
         $this->assertInstanceOf('ReservationDeletedEmailAdmin', $this->fakeEmailService->_Messages[0]);
         $this->assertInstanceOf('ReservationDeletedEmailAdmin', $this->fakeEmailService->_Messages[1]);

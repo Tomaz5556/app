@@ -90,18 +90,18 @@
                                 <a href="#" id="make_default" class="link-primary me-2" style="display:none;"><i
                                         class="bi bi-star-fill"></i></a>
                                 <a href="#" class="schedule-style me-1" id="schedule_standard"
-                                    schedule-display="{ScheduleStyle::Standard}">
+                                    schedule-display="{ScheduleStyle::Standard->value}">
                                     <img src="img/table.png" alt="{translate key='StandardScheduleDisplay'}" />
                                 </a>
-                                <a href="#" class="schedule-style me-1" id="schedule_tall" schedule-display="{ScheduleStyle::Tall}">
+                                <a href="#" class="schedule-style me-1" id="schedule_tall" schedule-display="{ScheduleStyle::Tall->value}">
                                     <img src="img/table-tall.png" alt="{translate key='TallScheduleDisplay'}" />
                                 </a>
                                 <a href="#" class="schedule-style d-none d-md-block me-1" id="schedule_wide"
-                                    schedule-display="{ScheduleStyle::Wide}">
+                                    schedule-display="{ScheduleStyle::Wide->value}">
                                     <img src="img/table-wide.png" alt="{translate key='WideScheduleDisplay'}" />
                                 </a>
                                 <a href="#" class="schedule-style d-none d-md-block" id="schedule_week"
-                                    schedule-display="{ScheduleStyle::CondensedWeek}">
+                                    schedule-display="{ScheduleStyle::CondensedWeek->value}">
                                     <img src="img/table-week.png" alt="{translate key='CondensedWeekScheduleDisplay'}" />
                                 </a>
                             </div>
@@ -149,7 +149,9 @@
                 <button class="btn btn-sm btn-primary mx-auto" href="#" id="individualDatesGo">
                     <i class="bi bi-search me-1"></i>{translate key=SpecificDates}
                 </button>
-                <div type="text" id="datepicker" class="collapse"></div>
+                <div class="d-flex justify-content-center align-items-center">
+                    <div id="datepicker" class="collapse"></div>
+                </div>
             </div>
 
 
@@ -410,7 +412,6 @@
 {/block}
 
 {jsfile src="js/html2canvas.min.js"}
-{jsfile src="js/moment.min.js"}
 {jsfile src="schedule.js"}
 {jsfile src="resourcePopup.js"}
 {jsfile src="js/tree.jquery.js"}
@@ -447,6 +448,7 @@
         fastReservationLoad: "{$FastReservationLoad}",
         resourceMaxConcurrentReservations,
         autoScrollToday: {$AutoScrollToday|@json_encode},
+        altFormatDate: "{Resources::GetInstance()->GetDateFormat('schedule_daily')}",
     };
 
     const resourceOrder = [];
@@ -479,7 +481,7 @@
 
 {control type="DatePickerSetupControl"
 ControlId='datepicker'
-HasTimepicker=false
+AltInput=false
 Inline=true
 DefaultDate=$FirstDate
 NumberOfMonths=$PopupMonths

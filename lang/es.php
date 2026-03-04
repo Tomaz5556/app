@@ -59,6 +59,8 @@ class es extends en_gb
         $strings['Error'] = 'Error';
         $strings['ReturnToPreviousPage'] = 'Volver a la página anterior';
         $strings['UnknownError'] = 'Error desconocido';
+        $strings['DatabaseConnectionError'] = 'No se pudo conectar al servidor de base de datos.<br/>Pide al administrador del sitio web que verifique el host, usuario y contraseña de la base de datos en <code>config/config.php</code>.';
+        $strings['DatabaseNotFoundError'] = 'No se pudo seleccionar la base de datos configurada.<br/>Pide al administrador del sitio web que verifique el nombre de la base de datos en <code>config/config.php</code> y confirme que la base de datos ha sido creada/inicializada.';
         $strings['InsufficientPermissionsError'] = 'No tienes permiso para acceder a este recurso';
         $strings['MissingReservationResourceError'] = 'No se ha seleccionado un recurso';
         $strings['MissingReservationScheduleError'] = 'No se ha seleccionado una planificación';
@@ -688,6 +690,7 @@ class es extends en_gb
         $strings['DeleteBlackoutsBefore'] = 'Borrar agenda de no disponibilidad antes de';
         $strings['DeletedReservations'] = 'Reservas Borradas';
         $strings['DeleteReservationsBefore'] = 'Borrar reservas anteriores a';
+        $strings['PermanentlyPurgeAllDeletedReservations'] = 'Purgar permanentemente todas las reservas eliminadas';
         $strings['SwitchToACustomLayout'] = 'Cambiar a un diseño personalizado';
         $strings['SwitchToAStandardLayout'] = 'Cambiar a un diseño estándar';
         $strings['ThisScheduleUsesACustomLayout'] = 'Este horario usa un diseño personalizado';
@@ -805,6 +808,8 @@ class es extends en_gb
 
         // Errors
         $strings['LoginError'] = 'No se ha encontrado una correspondencia para tu Nombre de Usuario (Identificador) y contraseña';
+        $strings['LdapConnectionErrorMessage'] = 'No se pudo conectar al servidor LDAP. Por favor, contacte con su administrador.';
+        $strings['LdapDependencyMissingMessage'] = 'La autenticación LDAP no está disponible porque falta pear/net_ldap2. Instálelo con: composer require pear/net_ldap2';
         $strings['ReservationFailed'] = 'Tu reserva no se ha podido realizar';
         $strings['MinNoticeError'] = 'Esta reserva se debe realizar por anticipado.  La fecha más temprana que puede ser reservada %s.';
         $strings['MinNoticeErrorUpdate'] = 'Cambiar esta reserva requiere aviso previo. Las reservas antes del %s no se pueden cambiar.';
@@ -1031,8 +1036,8 @@ class es extends en_gb
         //End View Resource
 
         //Datatables
-        $strings['Info'] = "Mostrando página _PAGE_ de _PAGES_ de _MAX_";
-        $strings['LengthMenu'] = "Mostrar _MENU_ registros";
+        $strings['Info'] = 'Mostrando página _PAGE_ de _PAGES_ de _MAX_';
+        $strings['LengthMenu'] = 'Mostrar _MENU_ registros';
         //End Datatables
 
         $this->Strings = $strings;

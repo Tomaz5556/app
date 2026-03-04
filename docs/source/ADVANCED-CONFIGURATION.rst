@@ -1,14 +1,20 @@
 Advanced Configuration
 ======================
 
-This guide covers all advanced configuration options available in LibreBooking. For basic setup, see :doc:`BASIC-CONFIGURATION` first.
+This guide covers all advanced configuration options available in LibreBooking.
+For basic setup, see :doc:`BASIC-CONFIGURATION` first.
 
-All settings are configured in the ``/config/config.php`` file. The configuration uses a mix of flat dot notation and nested arrays.
+All settings are configured in the ``<INSTALL_DIR>/config/config.php`` file,
+where ``<INSTALL_DIR>`` is the root directory of your LibreBooking
+installation. The configuration uses a mix of flat dot notation and nested
+arrays.
 
 Environment Variable Override
 -----------------------------
 
-LibreBooking supports overriding any configuration setting using environment variables. This provides flexibility for deployment scenarios and keeps sensitive data separate from configuration files.
+LibreBooking supports overriding any configuration setting using environment
+variables. This provides flexibility for deployment scenarios and keeps
+sensitive data separate from configuration files.
 
 **Naming Convention**
   Environment variables follow the pattern: ``LB_`` + config key with special characters converted:
@@ -51,7 +57,42 @@ LibreBooking supports overriding any configuration setting using environment var
            - LB_ADMIN_EMAIL=admin@company.com
 
 **Complete Example**
-  See ``develop/app/.env.example`` for a comprehensive list of all available environment variables with their default values and descriptions.
+  See ``develop/app/.env.example`` for a comprehensive list of all available
+  environment variables with their default values and descriptions.
+
+Version Suffix
+--------------
+
+LibreBooking can optionally append a suffix to the version shown in the page
+footer.
+
+Create ``<INSTALL_DIR>/config/version-suffix.txt`` with a value such as
+``abc123``. This file is intended for local or deployment-time metadata and
+should not be committed to source control. If the file is present and contains
+a non-empty value, the footer version will be displayed as ``v4.1.0-abc123``.
+If the file is missing or empty, LibreBooking displays the base version only.
+
+This is intended for deployment metadata such as a Docker image build
+identifier or short Git commit SHA. Only the footer display is affected. The
+application base version and asset cache-busting remain unchanged.
+
+The file must contain a single line only. A trailing newline is allowed, but
+additional lines are ignored. After trimming, the suffix must be 40 characters
+or fewer.
+
+Valid characters are letters, numbers, ``.``, ``_``, and ``-``. If the file
+contains multiple lines, exceeds 40 characters, or includes invalid characters,
+LibreBooking ignores the suffix and logs an error.
+
+**Example**
+
+  .. code-block:: bash
+
+     git rev-parse --short HEAD > config/version-suffix.txt
+
+This writes the current short Git commit SHA into
+``<INSTALL_DIR>/config/version-suffix.txt`` so the footer displays a version
+such as ``v4.1.0-a1b2c3d``.
 
 Application Advanced Settings
 -----------------------------
@@ -154,6 +195,7 @@ Advanced PHPMailer Settings
    'phpmailer' => [
        'sendmail.path' => '/usr/sbin/sendmail',
        'smtp.debug' => false,
+       'smtp.autotls' => true,
    ],
 
 **phpmailer.sendmail.path**
@@ -161,6 +203,10 @@ Advanced PHPMailer Settings
 
 **phpmailer.smtp.debug**
   Enable SMTP debug output (true/false).
+
+**phpmailer.smtp.autotls**
+  Set PHPMailer's SMTPAutoTLS setting (true/false). Determines if an
+  unencrypted SMTP connection should attempt to use STARTTLS.
 
 Logging Configuration
 ---------------------
@@ -262,7 +308,10 @@ Schedule Display Settings
   Show resources that users cannot book (grayed out).
 
 **schedule.reservation.label**
-  Template for reservation labels. Available tokens: {name}, {title}, {description}, {email}, {phone}, {organization}, {position}, {startdate}, {enddate}, {resourcename}, {participants}, {invitees}, {reservationAttributes}, and custom attributes like {att1}.
+  Template for reservation labels. Available tokens: {name}, {title},
+  {description}, {email}, {phone}, {organization}, {position}, {startdate},
+  {enddate}, {resourcename}, {participants}, {invitees},
+  {reservationAttributes}, and custom attributes like {att1}.
 
 **schedule.use.per.user.colors**
   Use different colors for each user's reservations.
@@ -299,7 +348,8 @@ Reservation Behavior
    ],
 
 **reservation.prevent.participation**
-  Disable the ability to add participants to reservations.
+  Disable reservation participation/invitations and hide participant/invitee
+  lists in the reservation UI.
 
 **reservation.prevent.recurrence**
   Disable recurring/repeating reservations.
@@ -311,7 +361,7 @@ Reservation Behavior
   Enable waitlist when resources are fully booked.
 
 **reservation.start.time.constraint**
-  When reservations can be made: 'future', 'any', 'same_day'.
+  Restrictions on when reservations can be made: 'none', 'current', 'future'.
 
 **reservation.updates.require.approval**
   Require approval when editing existing approved reservations.
@@ -335,7 +385,7 @@ Reservation Behavior
   Enable email reminders before reservations start/end.
 
 **reservation.default.start.reminder**
-  Default reminder time before start (e.g., '15 minutes', '1 hour').
+  Default reminder time before start (e.g., '15 minutes', '1 hours', '1 days').
 
 **reservation.default.end.reminder**
   Default reminder time before end.
@@ -354,7 +404,8 @@ Reservation Label Templates
        'reservation.popup' => '',
    ],
 
-These templates control how reservations appear in different contexts using the same tokens as schedule.reservation.label.
+These templates control how reservations appear in different contexts using the
+same tokens as schedule.reservation.label.
 
 Reports Settings
 ----------------
@@ -728,7 +779,15 @@ Plugin System
        'styling' => '',
    ],
 
-Available authentication plugins: ActiveDirectory, Apache, CAS, Drupal, Krb5, Ldap, Mellon, Moodle, MoodleAdv, Saml, Shibboleth, WordPress.
+Available authentication plugins: ActiveDirectory, Apache, CAS, Drupal, Krb5,
+Ldap, Mellon, Moodle, MoodleAdv, Saml, Shibboleth, WordPress.
+
+For authentication plugin configuration, see:
+
+- LDAP: :doc:`LDAP-Authentication`
+- Active Directory: :doc:`ActiveDirectory-Authentication`
+- OAuth2: :doc:`Oauth2-Configuration`
+- SAML: :doc:`SAML-Configuration`
 
 API Configuration
 -----------------

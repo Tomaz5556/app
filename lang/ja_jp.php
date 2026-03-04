@@ -26,12 +26,10 @@ class ja_jp extends en_gb
         $dates['res_popup_time'] = 'G:i';
         $dates['short_reservation_date'] = 'Y-m-d G:i';
         $dates['dashboard'] = 'Y-m-d (l) G:i';
-        $dates['period_time'] = "G:i";
-        $dates['timepicker'] = 'h:i a';
+        $dates['period_time'] = 'G:i';
         $dates['mobile_reservation_date'] = 'M/d G:i';
-        $dates['general_date_js'] = "yy-mm-dd";
+        $dates['general_date_js'] = 'yy-mm-dd';
         $dates['general_time_js'] = 'h:mm tt';
-        $dates['timepicker_js'] = 'h:i a';
         $dates['momentjs_datetime'] = 'YY-m-d h:mm A';
         $dates['calendar_time'] = 'h:mmt';
         $dates['calendar_dates'] = 'm/d';
@@ -97,6 +95,8 @@ class ja_jp extends en_gb
         $strings['Error'] = 'エラー';
         $strings['ReturnToPreviousPage'] = '直近のページへ戻る';
         $strings['UnknownError'] = '不明なエラー';
+        $strings['DatabaseConnectionError'] = 'データベースサーバーに接続できませんでした。<br/>Webサイト管理者に、<code>config/config.php</code> のデータベースのホスト名・ユーザー名・パスワード設定を確認するよう依頼してください。';
+        $strings['DatabaseNotFoundError'] = '設定されたデータベースを選択できませんでした。<br/>Webサイト管理者に、<code>config/config.php</code> のデータベース名を確認し、データベースが作成／初期化済みであることを確認するよう依頼してください。';
         $strings['InsufficientPermissionsError'] = 'このリソースを操作する権限がありません';
         $strings['MissingReservationResourceError'] = 'リソースが選択されていません';
         $strings['MissingReservationScheduleError'] = 'スケジュールが選択されていません';
@@ -612,13 +612,13 @@ class ja_jp extends en_gb
         $strings['ResourceMaxLengthCsv'] = '予約の最長時間';
         $strings['ResourceBufferTimeCsv'] = 'バッファ時間';
         $strings['ResourceMinNoticeAddCsv'] = '予約した際に最小限の通知';
-//        $strings['ResourceMinNoticeAddCsv'] = 'Reservation Add Minimum Notice';
+        //        $strings['ResourceMinNoticeAddCsv'] = 'Reservation Add Minimum Notice';
         $strings['ResourceMinNoticeUpdateCsv'] = '予約を変更した際に最小限の通知';
-//        $strings['ResourceMinNoticeUpdateCsv'] = 'Reservation Update Minimum Notice';
+        //        $strings['ResourceMinNoticeUpdateCsv'] = 'Reservation Update Minimum Notice';
         $strings['ResourceMinNoticeDeleteCsv'] = '予約を取り消した際に最小限の通知';
-//        $strings['ResourceMinNoticeDeleteCsv'] = 'Reservation Delete Minimum Notice';
+        //        $strings['ResourceMinNoticeDeleteCsv'] = 'Reservation Delete Minimum Notice';
         $strings['ResourceMaxNoticeCsv'] = '予約の最長';
-//        $strings['ResourceMaxNoticeCsv'] = 'Reservation Maximum End';
+        //        $strings['ResourceMaxNoticeCsv'] = 'Reservation Maximum End';
         $strings['Export'] = 'データ出力';
         $strings['DeleteMultipleUserWarning'] = 'これらのユーザーを削除すると、現在、将来、および過去の予約がすべて削除されます。 メールは送信されません。 ';
         $strings['DeleteMultipleReservationsWarning'] = 'メールは送信されません。';
@@ -815,6 +815,8 @@ class ja_jp extends en_gb
 
         // Errors
         $strings['LoginError'] = 'ユーザー名またはパスワードが一致しません';
+        $strings['LdapConnectionErrorMessage'] = 'LDAPサーバーに接続できませんでした。管理者にお問い合わせください。';
+        $strings['LdapDependencyMissingMessage'] = 'pear/net_ldap2 が見つからないため、LDAP 認証は利用できません。次のコマンドでインストールしてください: composer require pear/net_ldap2';
         $strings['ReservationFailed'] = '予約できませんでした';
         $strings['MinNoticeError'] = 'このリソースが今から予約できるのは %s 以降です。';
         $strings['MinNoticeErrorUpdate'] = 'この予約を変更するには事前の通知が必要です。 %s 以前の予約は変更できません。';

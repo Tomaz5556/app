@@ -2,6 +2,7 @@
     {jsfile src="js/lodash.4.6.13.min.js"}
     {jsfile src="js/moment.min.js"}
     {jsfile src="js/jquery.form-3.09.min.js"}
+    {jsfile src="js/flatpickr/cdn.jsdelivr.net/4.6.13/dist/flatpickr.min.js"}
     {if isset($Qtip) && $Qtip}
         {jsfile src="js/jquery.qtip.min.js"}
     {/if}
@@ -27,14 +28,14 @@
         {jsfile src="js/datatable/cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"}
         {jsfile src="js/datatable/cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"}
     {/if}
-    {if isset($DatePicker) && $DatePicker}
-        {jsfile src="js/flatpickr/cdn.jsdelivr.net/4.6.13/dist/flatpickr.min.js"}
-    {/if}
 {else}
     <script type="text/javascript" src="https://cdn.jsdelivr.net/lodash/4.16.3/lodash.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.13.0/moment.min.js"></script>
     <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/jquery.form/3.50/jquery.form.min.js">
     </script>
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"
+        integrity="sha384-5JqMv4L/Xa0hfvtF06qboNdhvuYXUku9ZrhZh3bSk8VXF0A/RuSLHpLsSV9Zqhl6"
+        crossorigin="anonymous"></script>
     {if isset($Qtip) && $Qtip}
         <script type="text/javascript" src="https://cdn.jsdelivr.net/qtip2/3.0.3/jquery.qtip.min.js"></script>
     {/if}
@@ -62,9 +63,6 @@
         <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.html5.min.js"></script>
         <script src="https://cdn.datatables.net/buttons/2.4.2/js/buttons.colVis.min.js"></script>
     {/if}
-    {if isset($DatePicker) && $DatePicker}
-        <script src="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.js"></script>
-    {/if}
 {/if}
 {if isset($InlineEdit) && $InlineEdit}
     {*The version of X-editable that supports Bootstrap 5 does not have a CDN link*}
@@ -75,10 +73,6 @@
 {/if}
 {if isset($Select2) && $Select2}
     <script src="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/js/select2.min.js"></script>
-{/if}
-{if isset($Timepicker) && $Timepicker}
-    {jsfile src="js/jquery.timePicker.min.js"}
-    {jsfile src="js/jquery-ui-timepicker-addon.js"}
 {/if}
 {if isset($Fullcalendar) && $Fullcalendar}
     {jsfile src="js/fullcalendar.js"}

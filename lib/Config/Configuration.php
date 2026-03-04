@@ -47,10 +47,10 @@ interface IConfigurationFile
     public function GetDefaultTimezone();
 
     /**
-     * @param $emailAddress
+     * @param string|null $emailAddress
      * @return bool
      */
-    public function IsAdminEmail($emailAddress);
+    public function IsAdminEmail(?string $emailAddress): bool;
 
     /**
      * @return string[]
@@ -91,7 +91,7 @@ class Configuration implements IConfiguration
     public const DEFAULT_CONFIG_ID = 'librebooking';
     public const CONFIG_FILE_PATH = ROOT_DIR . 'config/config.php';
     public const ENV_FILE_PATH = ROOT_DIR . '.env';
-    public const VERSION = '4.0.0';
+    public const VERSION = '4.2.0';
 
     protected function __construct()
     {
@@ -234,10 +234,10 @@ class Configuration implements IConfiguration
 
     /**
      * Checks if the given email address is an admin email.
-     * @param string $emailAddress The email address to check.
+     * @param string|null $emailAddress The email address to check.
      * @return bool True if the email address is an admin email, false otherwise.
      */
-    public function IsAdminEmail($emailAddress)
+    public function IsAdminEmail(?string $emailAddress): bool
     {
         return $this->File(self::DEFAULT_CONFIG_ID)->IsAdminEmail($emailAddress);
     }
@@ -351,8 +351,9 @@ class ConfigurationFile implements IConfigurationFile
                         if (!call_user_func([$this->_configKeysClass, 'findByKey'], $fullKey)) {
                             error_log("[CONFIG] Deprecated config key '$fullKey' used. It maps to '$finalKey'. Support for legacy keys will be removed in a future release.");
                         }
-
-                        continue;
+                    } else {
+                        // Unknown subkey - preserve in original structure for validation
+                        $rewritten[$key][$subKey] = $subValue;
                     }
                 }
 
@@ -415,7 +416,7 @@ class ConfigurationFile implements IConfigurationFile
             }
 
             if (isset($configDef['choices']) && !array_key_exists($value, $configDef['choices'])) {
-                error_log("[CONFIG] Invalid value '$value' for '{$fullKey}'. Should be one of the following options: [" . implode(', ', array_map( fn($key, $value) => "{$key} => {$value}", array_keys($configDef['choices']), $configDef['choices'])) . "]");
+                error_log("[CONFIG] Invalid value '$value' for '{$fullKey}'. Should be one of the following options: [" . implode(', ', array_map(fn ($key, $value) => "{$key} => {$value}", array_keys($configDef['choices']), $configDef['choices'])) . ']');
                 $validated[$key] = $configDef['default'];
                 continue;
             }
@@ -549,15 +550,19 @@ class ConfigurationFile implements IConfigurationFile
 
     /**
      * Checks if the given email address is an admin email.
-     * @param string $emailAddress The email address to check.
+     * @param string|null $emailAddress The email address to check.
      * @return bool True if the email address is an admin email, false otherwise.
      */
-    public function IsAdminEmail($emailAddress)
+    public function IsAdminEmail(?string $emailAddress): bool
     {
+        if ($emailAddress === null || $emailAddress === '') {
+            return false;
+        }
+
         $adminEmails = $this->GetAllAdminEmails();
 
         foreach ($adminEmails as $email) {
-            if (strtolower($emailAddress) == strtolower($email)) {
+            if (strtolower((string) $emailAddress) == strtolower((string) $email)) {
                 return true;
             }
         }

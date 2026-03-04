@@ -36,6 +36,7 @@
         {cssfile src="scripts/css/smoothness/jquery-ui.1.12.1.custom.min.css"}
         {cssfile src="css/bootstrap-icons/css/bootstrap-icons.min.css" rel="stylesheet"}
         {cssfile src="scripts/bootstrap/css/bootstrap.css" rel="stylesheet"}
+        {cssfile src="scripts/css/flatpickr/cdn.jsdelivr.net/npm/flatpickr/4.6.13/dist/flatpickr.min.css" rel="stylesheet"}
         {if isset($Qtip) && $Qtip}
             {cssfile src="css/jquery.qtip.min.css" rel="stylesheet"}
         {/if}
@@ -50,15 +51,15 @@
             {cssfile src="scripts/css/datatable/cdn.datatables.net/responsive/2.5.0/css/responsive.bootstrap5.min.css" rel="stylesheet"}
             {cssfile src="scripts/css/datatable/cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css" rel="stylesheet"}
         {/if}
-        {if isset($DatePicker) && $DatePicker}
-            {cssfile src="scripts/css/flatpickr/cdn.jsdelivr.net/npm/flatpickr/4.6.13/dist/flatpickr.min.css" rel="stylesheet"}
-        {/if}
     {else}
         <link rel="stylesheet" href="https://code.jquery.com/ui/1.12.1/themes/smoothness/jquery-ui.css" type="text/css" />
         <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet"
             integrity="sha384-QWTKZyjpPEjISv5WaRU9OFeRpok6YctnYmDr5pNlyT2bRjXh0JMhjY6hW+ALEwIH" crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.css">
-
+        <link rel="stylesheet"
+            href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css"
+            integrity="sha384-RkASv+6KfBMW9eknReJIJ6b3UnjKOKC5bOUaNgIY778NFbQ8MtWq9Lr/khUgqtTt"
+            crossorigin="anonymous">
         <link rel="stylesheet" href="https://cdn.jsdelivr.net/qtip2/3.0.3/jquery.qtip.min.css" type="text/css" />
         {if isset($Validator) && $Validator}
             <link rel="stylesheet"
@@ -75,9 +76,6 @@
             <link rel="stylesheet" href="https://cdn.datatables.net/buttons/2.4.2/css/buttons.bootstrap5.min.css"
                 type="text/css">
         {/if}
-        {if isset($DatePicker) && $DatePicker}
-            <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr@4.6.13/dist/flatpickr.min.css">
-        {/if}
     {/if}
     {if isset($InlineEdit) && $InlineEdit}
         {cssfile src="scripts/js/x-editable/css/bootstrap-editable.css" rel="stylesheet"}
@@ -86,16 +84,11 @@
     {if isset($Select2) && $Select2}
         <link href="https://cdn.jsdelivr.net/npm/select2@4.1.0-rc.0/dist/css/select2.min.css" rel="stylesheet" />
     {/if}
-    {if isset($Timepicker) && $Timepicker}
-        {cssfile src="scripts/css/timePicker.css" rel="stylesheet"}
-    {/if}
     {if isset($Fullcalendar) && $Fullcalendar}
         {cssfile src="scripts/css/fullcalendar.min.css"}
         <link rel='stylesheet' type='text/css' href='{$Path}scripts/css/fullcalendar.print.css' media='print' />
     {/if}
 
-    {jsfile src="js/jquery-ui-timepicker-addon.js"}
-    {cssfile src="scripts/css/jquery-ui-timepicker-addon.css"}
     {cssfile src="librebooking.css"}
     {if isset($cssFiles) && $cssFiles neq ''}
         {assign var='CssFileList' value=$cssFiles|split:','}
@@ -384,7 +377,7 @@
                                         </li>
                                         <li id="navNewVersion" class="new-version">
                                             <a class="dropdown-item"
-                                                href="https://github.com/LibreBooking/app/releases">{translate key=WhatsNew}</a>
+                                                href="https://github.com/LibreBooking/librebooking/releases">{translate key=WhatsNew}</a>
                                         </li>
                                     {/if}
                                 </ul>
@@ -395,11 +388,11 @@
                                 data-bs-toggle="dropdown">{translate key="Help"}</a>
                             <ul class="dropdown-menu  dropdown-menu-end">
                                 <li id="navHelp"><a class="dropdown-item"
-                                        href="https://github.com/LibreBooking/app/wiki">{translate key=Help}</a>
+                                        href="https://github.com/LibreBooking/librebooking/wiki">{translate key=Help}</a>
                                 </li>
                                 {if isset($CanViewAdmin) && $CanViewAdmin}
                                     <li id="navHelpAdmin"><a class="dropdown-item"
-                                            href="https://github.com/LibreBooking/app/wiki/Administration">{translate key=Administration}</a>
+                                            href="https://github.com/LibreBooking/librebooking/wiki/Administration">{translate key=Administration}</a>
                                     </li>
                                 {/if}
                                 <li id="navAbout"><a class="dropdown-item"

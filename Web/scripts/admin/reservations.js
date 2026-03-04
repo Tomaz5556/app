@@ -3,8 +3,8 @@ function ReservationManagement(opts, approval) {
 
     var elements = {
         userFilter: $("#userFilter"),
-        startDate: $("#formattedStartDate"),
-        endDate: $("#formattedEndDate"),
+        startDate: document.getElementById('startDate'),
+        endDate: document.getElementById('endDate'),
         userId: $("#userId"),
         scheduleId: $("#scheduleId"),
         resourceId: $("#resourceId"),
@@ -48,7 +48,6 @@ function ReservationManagement(opts, approval) {
         deleteMultiplePrompt: $('#delete-selected'),
         deleteMultipleDialog: $('#deleteMultipleDialog'),
         deleteMultipleForm: $('#deleteMultipleForm'),
-        deleteMultipleCheckboxes: $('.delete-multiple'),
         deleteMultipleSelectAll: $('#delete-all'),
         deleteMultipleCount: $('#deleteMultipleCount'),
         deleteMultiplePlaceHolder: $('#deleteMultiplePlaceHolder'),
@@ -201,14 +200,15 @@ function ReservationManagement(opts, approval) {
         elements.deleteMultipleSelectAll.click(function (e) {
             e.stopPropagation();
             var isChecked = elements.deleteMultipleSelectAll.is(":checked");
-            elements.deleteMultipleCheckboxes.prop('checked', isChecked);
+            elements.reservationTable.find('.delete-multiple').prop('checked', isChecked);
             elements.deleteMultiplePrompt.toggleClass('d-none', !isChecked);
         });
 
-        elements.deleteMultipleCheckboxes.click(function (e) {
+        elements.reservationTable.on('click', '.delete-multiple', function (e) {
             e.stopPropagation();
-            var numberChecked = elements.reservationTable.find('.delete-multiple:checked').length;
-            var allSelected = numberChecked == elements.reservationTable.find('.delete-multiple').length;
+            var allCheckboxes = elements.reservationTable.find('.delete-multiple');
+            var numberChecked = allCheckboxes.filter(':checked').length;
+            var allSelected = numberChecked == allCheckboxes.length;
             elements.deleteMultipleSelectAll.prop('checked', allSelected);
             elements.deleteMultiplePrompt.toggleClass('d-none', numberChecked == 0);
         });
@@ -366,7 +366,7 @@ function ReservationManagement(opts, approval) {
             return boolVal ? 1 : 0;
         };
 
-        var filterQuery = 'sd=' + elements.startDate.val() + '&ed=' + elements.endDate.val() + '&sid=' + elements.scheduleId.val() + '&rid=' + elements.resourceId.val() + '&uid=' + elements.userId.val() + '&un=' + elements.userFilter.val() + '&rn=' + elements.referenceNumber.val() + '&rsid=' + elements.statusId.val() + '&rrsid=' + elements.resourceStatusIdFilter.val() + '&rrsrid=' + reasonId + '&rtitle=' + elements.title.val() + '&rdesc=' + elements.description.val() + '&in=' + toInt(elements.missedCheckin.is(':checked')) + '&out=' + toInt(elements.missedCheckout.is(':checked'));
+        var filterQuery = 'sd=' + elements.startDate.value + '&ed=' + elements.endDate.value + '&sid=' + elements.scheduleId.val() + '&rid=' + elements.resourceId.val() + '&uid=' + elements.userId.val() + '&un=' + elements.userFilter.val() + '&rn=' + elements.referenceNumber.val() + '&rsid=' + elements.statusId.val() + '&rrsid=' + elements.resourceStatusIdFilter.val() + '&rrsrid=' + reasonId + '&rtitle=' + elements.title.val() + '&rdesc=' + elements.description.val() + '&in=' + toInt(elements.missedCheckin.is(':checked')) + '&out=' + toInt(elements.missedCheckout.is(':checked'));
 
         window.location = document.location.pathname + '?' + encodeURI(filterQuery) + attributeString;
     }

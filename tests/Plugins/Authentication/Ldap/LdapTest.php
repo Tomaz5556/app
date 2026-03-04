@@ -1,5 +1,7 @@
 <?php
 
+declare(strict_types=1);
+
 require_once(ROOT_DIR . 'plugins/Authentication/Ldap/namespace.php');
 
 class LdapTest extends TestBase
@@ -213,7 +215,7 @@ class LdapTest extends TestBase
         $this->assertEquals($password, $options['bindpw']);
         $this->assertEquals($base, $options['basedn']);
         $this->assertEquals(false, $options['starttls']);
-        $this->assertEquals(intval($version), $options['version'], "version should be int");
+        $this->assertEquals(intval($version), $options['version'], 'version should be int');
     }
 
     public function testGetAllHosts()
@@ -226,7 +228,7 @@ class LdapTest extends TestBase
 
         $options = new LdapOptions();
 
-        $this->assertEquals(['localhost', 'localhost.2'], $options->Controllers(), "comma separated values should become array");
+        $this->assertEquals(['localhost', 'localhost.2'], $options->Controllers(), 'comma separated values should become array');
     }
 
     public function testUserHandlesArraysAsAttribute()
@@ -262,7 +264,7 @@ class LdapTest extends TestBase
 
     public function testCanGetAttributeMapping()
     {
-        $attributeMapping = "sn= sn,givenname =givenname,mail=email ,telephonenumber=phone, physicaldeliveryofficename=physicaldeliveryofficename";
+        $attributeMapping = 'sn= sn,givenname =givenname,mail=email ,telephonenumber=phone, physicaldeliveryofficename=physicaldeliveryofficename';
 
         $configFile = new FakeConfigFile();
         $configFile->SetKey(LdapConfigKeys::ATTRIBUTE_MAPPING, $attributeMapping);
@@ -412,11 +414,11 @@ class FakeLdapWrapper extends Ldap2Wrapper
     }
 }
 
-class TestLdapEntry extends Net_LDAP2_Entry
+class TestLdapEntry
 {
     private $_values = [];
+    private $_dn = 'cn=test,dc=example,dc=org';
 
-    // @phpstan-ignore class.notFound
     public function __construct()
     {
         $this->Set('givenname', '');
@@ -430,6 +432,11 @@ class TestLdapEntry extends Net_LDAP2_Entry
     public function getValue($attr, $option = null)
     {
         return $this->_values[$attr];
+    }
+
+    public function dn()
+    {
+        return $this->_dn;
     }
 
     public function Set($attr, $value)
