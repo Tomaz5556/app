@@ -3,6 +3,417 @@
 
 <!-- version list -->
 
+## v4.3.0 (2026-04-03)
+
+### Bug Fixes
+
+- Allow special characters in passwords for user creation
+  ([`a903be1`](https://github.com/LibreBooking/librebooking/commit/a903be1c2b48237aab856babb3b73c5ea6791aae))
+
+- Correct check-in status display in resource details popup
+  ([`ed3dcbc`](https://github.com/LibreBooking/librebooking/commit/ed3dcbcf1115bc108a193c33c2d96bbfd3ca4bb7))
+
+- Improve tooltip rendering and fix Smarty issues
+  ([`3eb0179`](https://github.com/LibreBooking/librebooking/commit/3eb01796d7732ce92b200f1c0df240b014c98a92))
+
+- Show the Custom Attribute label name when deleting
+  ([`b1b06e5`](https://github.com/LibreBooking/librebooking/commit/b1b06e55b3ba7d4b733c2eeeae8084110ac09495))
+
+- Update the reservation email templates for various languages
+  ([`667ddc3`](https://github.com/LibreBooking/librebooking/commit/667ddc342eabcd14788d128b4fd64cfc59b29ca8))
+
+- Update the reservation email templates for various languages
+  ([`e94ad11`](https://github.com/LibreBooking/librebooking/commit/e94ad114e34d9c8aad37a41515e2be716d389d1b))
+
+- **admin**: Prevent permission loss when DataTables paginates resources
+  ([`cec8823`](https://github.com/LibreBooking/librebooking/commit/cec8823be81946b47d82b8d3695d09a19037bac5))
+
+- **auth**: Use per-user database language when no language cookie is set
+  ([`b2437db`](https://github.com/LibreBooking/librebooking/commit/b2437db9302d5c8a6bb8e62294b8beaabb561293))
+
+- **blackouts**: Require repeat-until in recurrence UI
+  ([`8840ec0`](https://github.com/LibreBooking/librebooking/commit/8840ec0ad38a7be9f98c452101345ece3188aa7f))
+
+- **blackouts**: Require termination date for recurring blackouts
+  ([`4cda32d`](https://github.com/LibreBooking/librebooking/commit/4cda32d33c8c27aa825129a9c086358a7321f3e3))
+
+- **calendar**: Generate correct reservation detail URLs server-side for guest views
+  ([`25e2391`](https://github.com/LibreBooking/librebooking/commit/25e239185fd128ba00b2673de89c0b9b9439f4b9))
+
+- **calendar**: Pass correct groupSeriesByResource boolean instead of privacyFilter object
+  ([`5a7d9ee`](https://github.com/LibreBooking/librebooking/commit/5a7d9ee5c32b78b0ecdacc49ba561b7391e6952a))
+
+- **config**: Avoid empty buckets when rewriting legacy keys
+  ([`e091b3f`](https://github.com/LibreBooking/librebooking/commit/e091b3f6268bbd1abddc532742f2a649269872c1))
+
+- **config**: Make config key lookup case-insensitive
+  ([`822ccfe`](https://github.com/LibreBooking/librebooking/commit/822ccfeeffa4ac9ad73ff319fe974e8dab370fec))
+
+- **config**: Preserve existing config values when merging new keys from config.dist.php
+  ([`e2006d1`](https://github.com/LibreBooking/librebooking/commit/e2006d1b4d9751ff1013abfbd2279450f13df9fe))
+
+- **config**: Reject case-insensitive key collisions
+  ([`eeea6f9`](https://github.com/LibreBooking/librebooking/commit/eeea6f947ebbf096f894d5be8a0de72baae06097))
+
+- **config**: Restore legacy config key mappings
+  ([`74db95a`](https://github.com/LibreBooking/librebooking/commit/74db95a277a2bbc1342ae6b761e2dd480774b5b7))
+
+- **config**: Rewrite legacy section keys into canonical sections
+  ([`64964cb`](https://github.com/LibreBooking/librebooking/commit/64964cbd0c29b9ac8ecf616a2af424e3b47a4080))
+
+- **config**: Treat empty-string section as unsectioned in GetKey
+  ([`7241c59`](https://github.com/LibreBooking/librebooking/commit/7241c5910293e5015748c882cb14398c530ce673))
+
+- **database**: Make 2.9+ upgrades idempotent and raise DB minimums
+  ([`3f632d4`](https://github.com/LibreBooking/librebooking/commit/3f632d4e1314c7a0759216c4140e4d5019e21b18))
+
+- **dataTable**: Add default page size configuration and update DataTable length menu
+  ([`a959247`](https://github.com/LibreBooking/librebooking/commit/a959247325f2c2d623c88dc24c5e29d802d8e444))
+
+- **email**: Correctly render reservation attributes in created emails
+  ([`0d2bce9`](https://github.com/LibreBooking/librebooking/commit/0d2bce906340259d7e11f4d9b2c92a53ab1ff0a9))
+
+- **email**: Honor secondary category in reservation email attributes
+  ([`42c98d5`](https://github.com/LibreBooking/librebooking/commit/42c98d53437e8e00137160b7ab8500d5a6b2b4e3))
+
+- **email**: Populate resource custom attribute values when loading reservation from DB
+  ([`5a9756e`](https://github.com/LibreBooking/librebooking/commit/5a9756e6928b992a4307272bc1ffb9bdcaa12042))
+
+- **email**: Restore submitter language after sending approval notification emails
+  ([`e33a6ab`](https://github.com/LibreBooking/librebooking/commit/e33a6ab61a432ec041c802e40209f9d10685f55f))
+
+- **en_gb**: Show only time in popup
+  ([`5999309`](https://github.com/LibreBooking/librebooking/commit/59993090ecba499135823d7558487b4302caddef))
+
+- **i18n**: Add English fallback for 3 languages missing parent translation calls
+  ([`e202d44`](https://github.com/LibreBooking/librebooking/commit/e202d448a818f0cd2dfe0a1a2f7585b15e270452))
+
+- **i18n**: Add English fallback for 8 languages missing parent translation calls
+  ([`4ee1ab8`](https://github.com/LibreBooking/librebooking/commit/4ee1ab87d7e1d5b3dfa5d115e3a8948c8c56c6a0))
+
+- **i18n**: Add missing embedded_datetime date format to en_gb locale
+  ([`a4e45d6`](https://github.com/LibreBooking/librebooking/commit/a4e45d63c93dcdf7ff2e15bbcf1bbb850d582987))
+
+- **i18n**: Replace HTML entities with UTF-8 characters in Italian locale
+  ([`a0c0f46`](https://github.com/LibreBooking/librebooking/commit/a0c0f46eaca71068427ad3dabf0a16efc7466a1a))
+
+- **js**: Add no-unused-vars rule, remove dead code, and fix bugs
+  ([`f009211`](https://github.com/LibreBooking/librebooking/commit/f009211c0876266e888bb3f724f8020679cb89b7))
+
+- **lang/es.php**: Spanish translations
+  ([`1b91ad3`](https://github.com/LibreBooking/librebooking/commit/1b91ad33a5a2ecaac09c9070e6071d5d87ef95c5))
+
+- **ldap**: Install the 'pear/net_ldap2' library by default
+  ([`f3d225e`](https://github.com/LibreBooking/librebooking/commit/f3d225e38f63d430a3627cb9d32e985e44bf78d6))
+
+- **ldap**: Require 'ext-ldap'
+  ([`e55e63a`](https://github.com/LibreBooking/librebooking/commit/e55e63ad6b9d98fe9c1d421e6a4cfa752f93f2cc))
+
+- **registration**: Resolve a server error when more than one attributes in the register page
+  ([`71a3f73`](https://github.com/LibreBooking/librebooking/commit/71a3f73ac68ec1c4568aaf99fde3ca54eb09b08a))
+
+- **reports**: Prevent chart modal from hanging on render errors
+  ([`e81f465`](https://github.com/LibreBooking/librebooking/commit/e81f465864db9ac5c8534d84a6d51ce8888abafc))
+
+- **reservation**: Correct guest reservation URI validation from calendar and schedule view
+  ([`9aca6a1`](https://github.com/LibreBooking/librebooking/commit/9aca6a1b06d158184740dee5ea92827cc25ab0d3))
+
+- **reservation**: Correct guest reservation URI validation from calendar and schedule view
+  ([`1f9a739`](https://github.com/LibreBooking/librebooking/commit/1f9a739409b9cf9596e7e6c2e894b0bf6f3ee56a))
+
+- **reservation**: Resolve a crash when the email field is not an array
+  ([`618a2f4`](https://github.com/LibreBooking/librebooking/commit/618a2f414a0fd8362c64c93a4b6c63a404eea50d))
+
+- **resource-display**: Update date input handling in resource display
+  ([`fbee303`](https://github.com/LibreBooking/librebooking/commit/fbee30394383b4c2ccffb3e694295744795dce6e))
+
+- **schedule**: Avoid recursive buffer item ids
+  ([`b139461`](https://github.com/LibreBooking/librebooking/commit/b1394612e9e5311d0b6662cffa8e2e528667d6c3))
+
+- **schedule**: Correct tall view rendering for reservations with hidden blocked periods
+  ([`7e80933`](https://github.com/LibreBooking/librebooking/commit/7e80933cbc7d194e23db5aa7b5eed9c29b463815))
+
+- **schedule**: Use correct StartDate field in reservation sort
+  ([`a83246c`](https://github.com/LibreBooking/librebooking/commit/a83246cb711cc8a3705032f23b9661c2791fe0ff))
+
+- **spanish-translations**: Update Spanish terms for consistency and clarity
+  ([`698cbec`](https://github.com/LibreBooking/librebooking/commit/698cbecca02ea29742674c8d98f1218ba6030a95))
+
+- **time**: Make Time parsing/formatting DST-safe for time-only values
+  ([`6bef7db`](https://github.com/LibreBooking/librebooking/commit/6bef7dbd642d22426d1ecbe6e96397e82bcfd9d7))
+
+- **translation**: Fix date formats for italian
+  ([`44ceb2b`](https://github.com/LibreBooking/librebooking/commit/44ceb2b661579475e429d503f18ee1e5588dab9c))
+
+- **UI**: Standardized the size of remaining form inputs and buttons to sm across the interface.
+  ([`cab32b6`](https://github.com/LibreBooking/librebooking/commit/cab32b6b28fb0a6a6771a96bfa5ae054b544255f))
+
+- **validators**: Allow empty schedule filter params
+  ([`9aca6a1`](https://github.com/LibreBooking/librebooking/commit/9aca6a1b06d158184740dee5ea92827cc25ab0d3))
+
+- **validators**: Remove redundant EXISTS from combined route validators
+  ([`9aca6a1`](https://github.com/LibreBooking/librebooking/commit/9aca6a1b06d158184740dee5ea92827cc25ab0d3))
+
+- **validators**: Remove redundant EXISTS from combined route validators
+  ([`47860f1`](https://github.com/LibreBooking/librebooking/commit/47860f150610e57c15028997099be04e7441e8f2))
+
+- **view-reservation**: Correctly display the duration of the reservation
+  ([`af1e2ce`](https://github.com/LibreBooking/librebooking/commit/af1e2ce5cb6fd85b6844983a40e98086ba644787))
+
+- **webservice**: Respect configured inactivity timeout per session
+  ([`3da795d`](https://github.com/LibreBooking/librebooking/commit/3da795dfda1f28e42c2703c4f6c2e62fa7876b31))
+
+### Build System
+
+- **assets**: Vendor Hind font for local frontend usage
+  ([`22b283a`](https://github.com/LibreBooking/librebooking/commit/22b283afe027e9b95be911b9484c8459d81d3ea3))
+
+### Chores
+
+- Correct the location of jquery-migrate
+  ([`6e828e8`](https://github.com/LibreBooking/librebooking/commit/6e828e8ce86753d6c7ab60d0a5932d1ea4de3835))
+
+- Remove bootstrapValidator CSS includes
+  ([`7079d8e`](https://github.com/LibreBooking/librebooking/commit/7079d8e4db404b8d4f759d104574d04384fa6490))
+
+- Remove unused wysihtml5 assets
+  ([`ccaf27b`](https://github.com/LibreBooking/librebooking/commit/ccaf27b6da78afaed30844dadf7588080698b909))
+
+- Upgrade jQuery UI assets to 1.14.2
+  ([`4a0818e`](https://github.com/LibreBooking/librebooking/commit/4a0818ecc8642a5cd429c28dd4105fa01100a185))
+
+- Upgrade jquery-migrate from 3.0.1 to 3.6.0
+  ([`74802ea`](https://github.com/LibreBooking/librebooking/commit/74802ea5bf12033ff650c123b2304bb578319228))
+
+- **api**: Remove trailing slash in Authentication POSTs
+  ([`e69e636`](https://github.com/LibreBooking/librebooking/commit/e69e63600b0e71b6d94464ee034f1e5a023a43c8))
+
+- **dependabot**: Add a 7 day cooldown for updates
+  ([`7154bac`](https://github.com/LibreBooking/librebooking/commit/7154bac5e383a8ba3bab2dc008e1e6d7cc64eed8))
+
+- **phpcsfixer**: Add 'node_modules/' to the ignore list
+  ([`4b9600d`](https://github.com/LibreBooking/librebooking/commit/4b9600ddd933ed09b61e2d926f9752810905e285))
+
+- **vendor**: Remove unused jquery-dynamiccontextmenu asset
+  ([`670f143`](https://github.com/LibreBooking/librebooking/commit/670f14346dd104bfe3a151047d90d3f474b7b942))
+
+- **vendor**: Upgrade select2 library to 4.1.0-rc.0
+  ([`8700159`](https://github.com/LibreBooking/librebooking/commit/8700159472c3bae3089c4d182b7601c3675b416c))
+
+### Code Style
+
+- Have AI agents flag "magic number" usage in code reviews
+  ([`8cfd27b`](https://github.com/LibreBooking/librebooking/commit/8cfd27bb782489ee7fa66201def0d090a45564c7))
+
+- **blackouts**: Stylize the presentation of Blackouts and reservations when there are conflicts
+  ([`cedce2f`](https://github.com/LibreBooking/librebooking/commit/cedce2f275e8d429cd91082c8a0441e9afb58d7b))
+
+- **changelog**: Add 'v' prefix to version headings for consistency
+  ([`d4447d3`](https://github.com/LibreBooking/librebooking/commit/d4447d34e9477baeb7b20acf07d871f0c6229950))
+
+- **jqtree**: Add Bootstrap form-check-input to missing checkboxes
+  ([`45e88df`](https://github.com/LibreBooking/librebooking/commit/45e88dff070511102d5810af0a0e473e49262641))
+
+### Continuous Integration
+
+- For some CI failures provide info on how to fix
+  ([`4bd036f`](https://github.com/LibreBooking/librebooking/commit/4bd036ff935b549231d9a3d6ab3f046d7b13598a))
+
+- **frontend**: Have the prettier check run first
+  ([`cb9a937`](https://github.com/LibreBooking/librebooking/commit/cb9a937a0cc3759d71c9a689d1afdec970cd00bb))
+
+- **integration**: Switch from MySQL to MariaDB and use Docker mirror
+  ([`f499fbd`](https://github.com/LibreBooking/librebooking/commit/f499fbd8dce036efe86cc12a00e04ad3d26ecd0c))
+
+- **lint**: Add Node.js setup hint to frontend lint failure messages
+  ([`ee32d8f`](https://github.com/LibreBooking/librebooking/commit/ee32d8feffd23f39c2e3b12bfef327830b2a4c74))
+
+- **phpcsfixer**: When it fails, tell how to fix it
+  ([`b534c4e`](https://github.com/LibreBooking/librebooking/commit/b534c4e3294d55ddae561f2ee8862c749c468707))
+
+- **release**: Change monthly release schedule to 17:00 UTC
+  ([`4e3cc08`](https://github.com/LibreBooking/librebooking/commit/4e3cc08073aa123527071e027880bbdfa147850b))
+
+### Documentation
+
+- Update description of schedule.fast.reservation.load
+  ([`f323b16`](https://github.com/LibreBooking/librebooking/commit/f323b16315524c7a9eb38ab3addb06fbe6b88a78))
+
+- **api**: Add some curl examples to the API docs
+  ([`1465819`](https://github.com/LibreBooking/librebooking/commit/1465819914420d4b583504a0a0f0984a4e0c84f9))
+
+- **api**: Change the Authentication docs to use sample values
+  ([`05dce48`](https://github.com/LibreBooking/librebooking/commit/05dce48f30f0746fa5544d71f992be9c9aa58e2b))
+
+- **api**: Correct the responses for account actions
+  ([`89f6ec2`](https://github.com/LibreBooking/librebooking/commit/89f6ec26311ec0ed32a51ef6e55409ec2f7c598e))
+
+- **API**: Document retryParameters and skipconflicts for reservation endpoints
+  ([`6f10d2f`](https://github.com/LibreBooking/librebooking/commit/6f10d2fd654e1e744887826f33a8701b842d8a91))
+
+- **api**: Emphasize to not use a / for authentication endpoint
+  ([`5294edc`](https://github.com/LibreBooking/librebooking/commit/5294edcc5dcadf77bf95d4d0b28e023ba265f818))
+
+- **api**: Put the 'request' before the 'response'
+  ([`7cdb4da`](https://github.com/LibreBooking/librebooking/commit/7cdb4da3c0dbb3fd0e3674171c39dc0daaa6b976))
+
+- **api**: Use the term "Endpoints" instead of "Services"
+  ([`d306a41`](https://github.com/LibreBooking/librebooking/commit/d306a419c9d9057d0f3824217a47ac00764169c5))
+
+- **config**: Document admin exemption from start.time.constraint
+  ([`e1b10da`](https://github.com/LibreBooking/librebooking/commit/e1b10da64a5395653fcf888bd45e7fceae2a93a3))
+
+- **css**: Improve the documentation for `css.extension.file` config
+  ([`a6d00b6`](https://github.com/LibreBooking/librebooking/commit/a6d00b63d7c2c3a4620cea649a1f7e4d091169f5))
+
+- **faq**: Add an initial FAQ document
+  ([`2b54b66`](https://github.com/LibreBooking/librebooking/commit/2b54b66e21219ed65a998b5616126e4e9f00bf6e))
+
+- **ldap**: Add note about using the LDAP schema for the host
+  ([`8015721`](https://github.com/LibreBooking/librebooking/commit/8015721455db48a6336a787daad35aec937b816f))
+
+- **oauth2**: Document the `oauth2.strip.trailing.slash` config
+  ([`2c361b7`](https://github.com/LibreBooking/librebooking/commit/2c361b7762a6dccaa42e1ea7c528b7f12ee39af1))
+
+- **oauth2**: Update config examples for new config format
+  ([`5110088`](https://github.com/LibreBooking/librebooking/commit/51100880fc29582201d7be87b46c218f97e347a7))
+
+### Features
+
+- Add large sample database and setup script
+  ([`9b202d2`](https://github.com/LibreBooking/librebooking/commit/9b202d25741350c6fd6f95e9c11044972214e04a))
+
+- Add option CAS_VERSION_3_0 for config key CAS_VERSION in CAS Authentication plugin
+  ([`7d6c3d4`](https://github.com/LibreBooking/librebooking/commit/7d6c3d420bbc3cc772494b9aa25de91796da4526))
+
+- Enable use of local JavaScript libraries by default
+  ([`c2d663e`](https://github.com/LibreBooking/librebooking/commit/c2d663e214bb9a7776afb3fae83f608d13f8aac5))
+
+- Enhance reservation emails with resource metadata and details table
+  ([`57497bc`](https://github.com/LibreBooking/librebooking/commit/57497bca8e11a54349d76b68b59fad48880328e5))
+
+- OAuth trailing slash variable
+  ([`662fa90`](https://github.com/LibreBooking/librebooking/commit/662fa905f0445fc884fc446e96642e6461254599))
+
+- **api**: Add scheduleId filter to GET Resources endpoint
+  ([`6ef6011`](https://github.com/LibreBooking/librebooking/commit/6ef6011fbfdfaee3d4c1cc7299810cca3389afd4))
+
+- **ci**: Add initial minimal frontend linting with ESLint and Stylelint
+  ([`4fe45d5`](https://github.com/LibreBooking/librebooking/commit/4fe45d53e193a281181ff9ecb398b5a3162edd9a))
+
+- **ci**: Add Prettier for standardized frontend formatting
+  ([`5346f52`](https://github.com/LibreBooking/librebooking/commit/5346f5251e6c0a04d7b732f25f23d835480dcd41))
+
+- **ci**: Promote all ESLint rules to error and block warnings
+  ([`d3f9c4b`](https://github.com/LibreBooking/librebooking/commit/d3f9c4b9170a234e34dfaa1ca9d4208fa65bc565))
+
+- **config**: Add config migration script and documentation
+  ([`2371fea`](https://github.com/LibreBooking/librebooking/commit/2371fea4ed380599220a07ee43c97ec3470c4402))
+
+- **config**: Support custom footer version override
+  ([`157a4cb`](https://github.com/LibreBooking/librebooking/commit/157a4cb7c830ed0d9ae3c274889f953e8a927b16))
+
+- **github**: Convert issue templates to YAML forms with required fields
+  ([`996d654`](https://github.com/LibreBooking/librebooking/commit/996d654b0c3e1c40764acbcd6e6fb3bc2e5b49d0))
+
+- **i18n**: Add enabled.languages config to restrict language selector
+  ([`7063f26`](https://github.com/LibreBooking/librebooking/commit/7063f26c36ca81e631cc82298569d7698f88738a))
+
+- **i18n**: Add language selector to navbar
+  ([`138fecc`](https://github.com/LibreBooking/librebooking/commit/138fecc35d8761cb5ebe1c8203c5f836acfd6fb0))
+
+- **install**: Add option to load large sample data in web installer
+  ([`3cafcdb`](https://github.com/LibreBooking/librebooking/commit/3cafcdb2dc5e94561734777d1ed58830a319a947))
+
+- **schedule**: Add tooltips to schedule action buttons
+  ([`27dcd39`](https://github.com/LibreBooking/librebooking/commit/27dcd397d1687dc137ece2ceeaa1aa9ac858132d))
+
+- **UI**: Add noscript warning for users with JavaScript disabled
+  ([`334eeb7`](https://github.com/LibreBooking/librebooking/commit/334eeb7a0e64e665aeb390d9ddb9ba9ec7b4c763))
+
+### Refactoring
+
+- Move 3rd party Javascript and CSS code
+  ([`0bdff5a`](https://github.com/LibreBooking/librebooking/commit/0bdff5a61df29e60fef6e77bb31a03fd4d70a11f))
+
+- Remove legacy qTip references
+  ([`f73a717`](https://github.com/LibreBooking/librebooking/commit/f73a717a5b22efb931f8ed5fae066b274631f3eb))
+
+- Remove qTip assets and related files
+  ([`12e187a`](https://github.com/LibreBooking/librebooking/commit/12e187a581e5135c371a70d706ef944ef23e9942))
+
+- Reservation email template context for multi-resource emails
+  ([`0ae98b6`](https://github.com/LibreBooking/librebooking/commit/0ae98b61f1a615fa3a33008d42245af3feeb049d))
+
+- **config**: Clarify config key schema dispatch
+  ([`88b1350`](https://github.com/LibreBooking/librebooking/commit/88b13509c433e1132672ae05f072b8554825c0bd))
+
+- **config**: Extract shared config key base class
+  ([`27e7e31`](https://github.com/LibreBooking/librebooking/commit/27e7e3123cf387682db16f3f241f57dc39b015d6))
+
+- **dashboard-tooltip**: Show reservation tooltip only on .reservationTitle
+  ([`d6afdec`](https://github.com/LibreBooking/librebooking/commit/d6afdecca026914d99f0a53ce65907e8322146f9))
+
+- **domain**: Rename User::GetAllowedResourceIds() to GetFullAccessResourceIds()
+  ([`0acb94e`](https://github.com/LibreBooking/librebooking/commit/0acb94e621b49ccc0dd5e02071792c43f06f2c84))
+
+- **domain**: Rename User::GetAllowedViewResourceIds() to GetViewAccessResourceIds()
+  ([`2081bc6`](https://github.com/LibreBooking/librebooking/commit/2081bc61a03668c1ef983229a0dbce67c99cc696))
+
+- **js**: Add prefer-const ESLint rule and fix violations
+  ([`84cd017`](https://github.com/LibreBooking/librebooking/commit/84cd017426154a7e068b1c0517f46125d0ae755b))
+
+- **manage-blackouts**: Tooltips to appear only on .reservationTitle
+  ([`9ad945e`](https://github.com/LibreBooking/librebooking/commit/9ad945e3470ac03195be40b5bf0d2cf94ef2249c))
+
+- **manage-reservations**: Tooltips to appear only on .reservationTitle
+  ([`e6ed697`](https://github.com/LibreBooking/librebooking/commit/e6ed697c3d28deb719d71ebae7718528d4893549))
+
+- **participation**: Tooltips to appear only on .reservationTitle
+  ([`b408344`](https://github.com/LibreBooking/librebooking/commit/b408344a9ad491130f6f939d424dc213c57e8968))
+
+- **recurrence**: Replace native date time input with flatpickr
+  ([`0f1071e`](https://github.com/LibreBooking/librebooking/commit/0f1071e2efbc7f297bbb08782af82e75bbbdd77f))
+
+- **reports**: Add charts.js assets
+  ([`3c27c04`](https://github.com/LibreBooking/librebooking/commit/3c27c0471088c06b44cca9742042f9ff9dc4da52))
+
+- **reports**: Remove dead code and standardize jQuery event handling
+  ([`0b65c4e`](https://github.com/LibreBooking/librebooking/commit/0b65c4e51107bf68d9e2924f6da9df4c9881aaf0))
+
+- **reports**: Remove jqPlot assets
+  ([`fa0f2bd`](https://github.com/LibreBooking/librebooking/commit/fa0f2bd1112bd8bf4ab0a4acfc17135ba950eac7))
+
+- **reports**: Switch Reports from jqPlot to Chart.js
+  ([`afec9c0`](https://github.com/LibreBooking/librebooking/commit/afec9c0374abab16ca5c5a43037e2dbd111583c4))
+
+- **schedules**: Replace qTip with Bootstrap tooltips for reservation tooltip
+  ([`9283493`](https://github.com/LibreBooking/librebooking/commit/92834939d612f169d8990848379548269aca2ffb))
+
+- **tooltip**: Tooltips to appear only on .reservationTitle (search-reservations)
+  ([`9a5875e`](https://github.com/LibreBooking/librebooking/commit/9a5875e6dbed67747737f69182baeed5ef864d7e))
+
+- **tooltips**: Standardize popup template names and update references
+  ([`3fcedd6`](https://github.com/LibreBooking/librebooking/commit/3fcedd634ae28ddda47321419f9cf5b52d274bd4))
+
+- **validators**: Replace regex param extraction with parse_url/parse_str
+  ([`c74bdf6`](https://github.com/LibreBooking/librebooking/commit/c74bdf61577f4255cf1d326a9ce1d992c7bd1675))
+
+- **validators**: Simplify XSS guard with early return and add PHPDoc comments
+  ([`691e91e`](https://github.com/LibreBooking/librebooking/commit/691e91e1f70081c0e203ceee0c41eb45a3328379))
+
+### Testing
+
+- Resolve issues with tests and crossing a DST boundary
+  ([`539acc3`](https://github.com/LibreBooking/librebooking/commit/539acc32b5435b8a782104cc18cf8eb630287f96))
+
+- **config**: Cover parsing of historical legacy config files
+  ([`07dc573`](https://github.com/LibreBooking/librebooking/commit/07dc5732cf9ff7935145b7445d8aa94366cd9dc0))
+
+- **reservation**: Fix issue with DST causing test failure
+  ([`6850403`](https://github.com/LibreBooking/librebooking/commit/6850403922e52da7df0905c286ec2ee468ee2664))
+
+
 ## v4.2.0 (2026-03-03)
 
 ### Bug Fixes
@@ -626,7 +1037,7 @@
   ([`8e7645b`](https://github.com/LibreBooking/librebooking/commit/8e7645b8bac818a82d2e32b604becf70a6ff8fab))
 
 
-## 4.0.0 - 2025-08-06
+## v4.0.0 - 2025-08-06
 
 ### Highlights
 
@@ -666,7 +1077,7 @@
 
 **Full Changelog**: <https://github.com/LibreBooking/librebooking/compare/v3.0.3...v4.0.0>
 
-## 3.0.3 - 2025-07-09
+## v3.0.3 - 2025-07-09
 
 ### Highlights
 
@@ -687,7 +1098,7 @@
 
 **Full Changelog**: <https://github.com/LibreBooking/librebooking/compare/v3.0.2...v3.0.3>
 
-## 3.0.2 - 2025-07-07
+## v3.0.2 - 2025-07-07
 
 ### Highlights
 
@@ -704,14 +1115,14 @@
 
 **Full Changelog**: <https://github.com/LibreBooking/librebooking/compare/v3.0.1...v3.0.2>
 
-## 3.0.1 - 2025-06-25
+## v3.0.1 - 2025-06-25
 
-Update the version number in the code base. This wa missed in the v3.0.0
+Update the version number in the code base. This was missed in the v3.0.0
 release.
 
 **Full Changelog**: <https://github.com/LibreBooking/librebooking/compare/v3.0.0...v3.0.1>
 
-## 3.0.0 - 2025-06-24
+## v3.0.0 - 2025-06-24
 
 ### Highlights
 
@@ -722,22 +1133,22 @@ release.
 - Improvements to the CI system.
 - Thanks to @labmecanicatec and @lucs7 for all their work this release.
 
-**Full Changelog**: <https://github.com/LibreBooking/librebooking/compare/2.8.6.2...v3.0.0>
+**Full Changelog**: <https://github.com/LibreBooking/librebooking/compare/v2.8.6.2...v3.0.0>
 
-## 2.8.6.2 - 2024-08-18
+## v2.8.6.2 - 2024-08-18
 
 See all the changes at <https://github.com/LibreBooking/librebooking/commits/develop>
 
-## 2.8.6.1 - 2023-09-26
+## v2.8.6.1 - 2023-09-26
 
 Mainly Bug fixes, special mention for the ldap plugin, more details at <https://github.com/LibreBooking/librebooking/commits/develop>
 
-## 2.8.6 - 2023-04-18
+## v2.8.6 - 2023-04-18
 
 Librebooking now has PHP8 support
 Many bugs, updates and even new features were added but the list is a bit long so for further details please check the commit history <https://github.com/LibreBooking/librebooking/commits/develop>
 
-## 2.8.5.5 - 2022-02-11
+## v2.8.5.5 - 2022-02-11
 
 **This version is no longer developed by Twinkle Toes Software (<https://www.bookedscheduler.com>)**
 Based on the original open source version of Booked, now available at: [https://github.com/LibreBooking/librebooking](https://github.com/LibreBooking/librebooking)  
@@ -745,7 +1156,7 @@ Fork this repo, contribute and help keep it alive
 
 Small update to fix a security issue
 
-## 2.8.5.4 - 2021-09-03
+## v2.8.5.4 - 2021-09-03
 
 **This version is no longer developed by Twinkle Toes Software (<https://www.bookedscheduler.com>)**
 Based on the original open source version of Booked, now available at: [https://github.com/LibreBooking/librebooking](https://github.com/LibreBooking/librebooking)  
@@ -753,7 +1164,7 @@ Fork this repo, contribute and help keep it alive
 
 Way too many changes, bugfixes and improvements to list them all here, so please take a look at: [https://github.com/LibreBooking/librebooking/commits/master](https://github.com/LibreBooking/librebooking/commits/master)
 
-## 2.8.5.3 - 2021-03-10
+## v2.8.5.3 - 2021-03-10
 
 **This version is no longer developed by Twinkle Toes Software (<https://www.bookedscheduler.com>)**
 Based on the original open source version of Booked, now available at: [https://github.com/LibreBooking/librebooking](https://github.com/LibreBooking/librebooking)  
@@ -763,13 +1174,13 @@ Fork this repo, contribute and help keep it alive
 - Updated jsPDF
 - Bugfixes
 
-## 2.8.5.2 - 2021-01-25
+## v2.8.5.2 - 2021-01-25
 
 **This version is no longer developed by Twinkle Toes Software (<https://www.bookedscheduler.com>)**
 Based on the original open source version of Booked, now available at: [https://github.com/LibreBooking/librebooking](<https://github.com/LibreBooking/librebooking>)  
 Fork this repo, contribute and help keep it alive - Bugfixes
 
-## 2.8.5.1 - 2020-11-11
+## v2.8.5.1 - 2020-11-11
 
 **This version is no longer developed by Twinkle Toes Software (<https://www.bookedscheduler.com>)**
 Based on the original open source version of Booked, now available at: [https://github.com/LibreBooking/librebooking](<https://github.com/LibreBooking/librebooking>)
@@ -780,7 +1191,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Updated portuguese translation
 - Bugfixes
 
-## 2.8.5
+## v2.8.5
 
 - Added import and export of groups
 - Updated Danish translation
@@ -790,30 +1201,30 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Added settings to require phone, position, and organization during registration
 - Bugfixes
 
-## 2.8.4
+## v2.8.4
 
 - Allow reservations on the schedule to be filtered by owner or participant
 - Include participant list in reports output
 - Add resource concurrency to resource import and export
 - Bugfixes
 
-## 2.8.3
+## v2.8.3
 
 - Do not require logging in to set up resource tablet display
 - Bugfixes
 
-## 2.8.2
+## v2.8.2
 
 - Added the ability to set a limit on the number of concurrent reservations per resource
 - Removed the ability to set a schedule as allowing unlimited concurrent reservations per resource
 - Bugfixes
 
-## 2.8.1
+## v2.8.1
 
 - Added ability to limit the total number of concurrent reservations for a schedule
 - Added ability to limit the number of resources per reservation for a schedule
 
-## 2.7.8
+## v2.7.8
 
 - Added ability to repeat a reservation on non-sequential dates
 - Updated PayPal API to version 2
@@ -823,13 +1234,13 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - MySQL 8+ compatibility
 - Bugfixes
 
-## 2.7.7
+## v2.7.7
 
 - Added a configuration option to show whether a reservation is new or updated for a period of time
 - Added Hungarian translation
 - Bugfixes
 
-## 2.7.6
+## v2.7.6
 
 - Added email notifications when participants of a reservation accept or decline invites
 - Added reservation waitlist signup on view reservation page
@@ -838,7 +1249,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Updated Portuguese and Finnish translations
 - Bugfixes
 
-## 2.7.5
+## v2.7.5
 
 - Added utilization reports
 - Added ability to find a specific time
@@ -847,7 +1258,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Added link to add to Google Calendar to reservation emails
 - Bugfixes
 
-## 2.7.4
+## v2.7.4
 
 - Added availability view to reservation page
 - Added participant list to reservation emails
@@ -855,21 +1266,21 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Added ability to search for reservations that missed checkin/checkout
 - Bugfixes
 
-## 2.7.3
+## v2.7.3
 
 - Added ability to set user status on CSV import
 - Added ability to share reservation details via email
 - Added ability set the resources, groups, and schedules a group can administer from Groups tool
 - Bugfixes
 
-## 2.7.2
+## v2.7.2
 
 - Added monitor display view
 - Resolved accessibility issues
 - Added Serbian
 - Bugfixes
 
-## 2.7.1
+## v2.7.1
 
 - Added ability to purchase credits
 - Added credit usage to the reservation page
@@ -900,7 +1311,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Upgraded jQuery to latest
 - Bugfixes
 
-## 2.6.8
+## v2.6.8
 
 - Added ability to see real time availability when selecting additional resources
 - Added the ability to set a delete/reject reason
@@ -910,7 +1321,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Optimize JavaScript file loading for better page rendering times
 - Bugfixes
 
-## 2.6.7
+## v2.6.7
 
 - Added real-time indication of additional resource availability in reservation screen
 - Added ability to search for reservations
@@ -922,7 +1333,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Added Thai language
 - Bugfixes
 
-## 2.6.6
+## v2.6.6
 
 - Added ability to set default start and end reminders
 - Added ability to import resources from CSV
@@ -945,7 +1356,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Numerous security fixes
 - Bugfixes
 
-## 2.6.5
+## v2.6.5
 
 - Ensure only one reminder email is sent per reservation when multiple resources are booked
 - Added Vietnamese
@@ -954,7 +1365,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Added resource type filter to reports
 - Bugfixes
 
-## 2.6.4
+## v2.6.4
 
 - Use resource color on availability dashboard
 - Display reservations for multiple resources as one item on dashboard
@@ -963,7 +1374,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Upgrade PHPMailer
 - Bugfixes
 
-## 2.6.3
+## v2.6.3
 
 - Include resource name in all email subjects
 - Added 'Today' link to schedule navigation
@@ -976,7 +1387,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Added Russian
 - Bugfixes and security updates
 
-## 2.6.2
+## v2.6.2
 
 - Added ability to invite users to join Booked
 - Added ability to repeat multi-day reservations
@@ -984,11 +1395,11 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Bugfixes
 - Updated French language pack
 
-## 2.6.1
+## v2.6.1
 
 - Bugfixes
 
-## 2.6
+## v2.6
 
 - Mobile first, fully responsive user interface
 - Allow guests to book and be invited to reservations
@@ -1013,7 +1424,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - The first user to register will automatically be setup as the primary admin
 - Numerous minor enhancements and bug fixes
 
-## 2.5.21
+## v2.5.21
 
 - Added ability to duplicate a reservation
 - Added ability to move reservations by dragging to new slot
@@ -1023,7 +1434,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Fix bug not showing custom user attributes on manage user page
 - Fix for account deleted email
 
-## 2.5.20
+## v2.5.20
 
 - Added multi-date selection to bookings page
 - Added ability to send announcements as emails
@@ -1034,13 +1445,13 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Fixed click and drag on condensed week view
 - Fixed problem showing hidden resources on dashboard
 
-## 2.5.19
+## v2.5.19
 
 - Fixed some packaging issues from 2.5.18
 - Added ability to filter multiple resources on the schedule
 - Updated Japanese language files
 
-## 2.5.18
+## v2.5.18
 
 - Fixed bugs with CSRF checks
 - Changed the manage reservation search filter to be inclusive of reservations spanning filtered time
@@ -1050,7 +1461,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Added fix to allow larger datasets returned when using group_concat
 - Fixed the 'deleted by' name in the account deletion email
 
-## 2.5.17
+## v2.5.17
 
 - Fixed bug preventing schedule view switching on Chrome and IE
 - Fixed bug with reports showing no results when searching on accessories
@@ -1075,7 +1486,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Ensure session is started when rendering captcha
 - Fixed syntax issue on PHP 5.3 and lower
 
-## 2.5.16
+## v2.5.16
 
 - Added datetime custom attribute type
 - Added ability to import a list of users
@@ -1103,7 +1514,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Updated French language pack
 - Updated Croatian language pack
 
-## 2.5.15
+## v2.5.15
 
 - Added ability for users to join reservations without being invited
 - Upgraded CAS library to 1.3.3
@@ -1115,7 +1526,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Updated Italian language
 - Updated Spanish language
 
-## 2.5.14
+## v2.5.14
 
 - Added notice to schedule when no resources have been added
 - Added emails to participants and invitees when a reservation is updated
@@ -1131,7 +1542,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Updated Italian language pack
 - Updated Spanish language pack
 
-## 2.5.13
+## v2.5.13
 
 - Fixed bug preventing reservations from being added to Outlook
 - Fixed bug preventing accessories from showing in reservation popup
@@ -1141,19 +1552,19 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Applied patch for HTTP security headers
 - Updated Italian language
 
-## 2.5.12
+## v2.5.12
 
 - Fixed English admin help page
 
-## 2.5.11
+## v2.5.11
 
 - Fixed issue that was sending approval request emails on every reservation create/update if approval emails were enabled
 
-## 2.5.10
+## v2.5.10
 
 - Fixed issue sending email from \*nix servers
 
-## 2.5.9
+## v2.5.9
 
 - Added custom attributes to reports
 - Added resource groups to calendar views
@@ -1173,7 +1584,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Updated German language files
 - Updated Portuguese language files
 
-## 2.5.8
+## v2.5.8
 
 - Added schedule and resource filter to My Calendar
 - Fixed bug displaying week in calendar views
@@ -1182,25 +1593,25 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Updated Japanese language files
 - Updated Portuguese language files
 
-## 2.5.7
+## v2.5.7
 
 - Fixed potential XSS vulnerability on login page
 
-## 2.5.6
+## v2.5.6
 
 - Fixed problem navigating to reservation details from tall schedule view
 - Fixed problem rendering resource group management page
 
-## 2.5.5
+## v2.5.5
 
 - Fixed problem updating plugin config files through UI
 - Fixed date parsing in web services
 
-## 2.5.4
+## v2.5.4
 
 - Fixed error updating resources
 
-## 2.5.3
+## v2.5.3
 
 - Fixed manage reservations/resources custom attribute filter when multiple attributes are provided
 - Fixed javascript error when recaptcha is disabled during registration
@@ -1210,7 +1621,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Fixed error filtering blackouts by resource
 - Fixed error creating recurring reservation which sometimes picked the wrong week of the month
 
-## 2.5.2
+## v2.5.2
 
 - Added ability for admins to filter reservations by custom attributes
 - Added ability for admins update reservation custom attributes inline on manage reservations page
@@ -1226,7 +1637,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Changed reservation confirmation screen to notify when the reservation requires approval
 - Updates to Italian language pack
 
-## 2.5.1
+## v2.5.1
 
 - Updated German language files
 - Changed reservations web service to not default to current user if no user is provided
@@ -1242,7 +1653,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Fixed sample data import
 - Cleaned up sample post-reservation plugin example
 
-## 2.5
+## v2.5
 
 - Application renamed from phpScheduleIt to Booked Scheduler [(why?)](http://www.bookedscheduler.com/phpscheduleit)
 - Added ability to reserve resource groups
@@ -1278,7 +1689,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Updated all mysql_\* calls to mysqli_\*
 - Numerous other minor fixes and updates
 
-## 2.4.2
+## v2.4.2
 
 - Added ability to click and drag to create reservations
 - Added ability hide blocked slots on schedule
@@ -1291,14 +1702,14 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Fixed bug selecting wrong start time when user and schedule timezones are different
 - Updated German, Portuguese and Hebrew languages
 
-## 2.4.1
+## v2.4.1
 
 - Changed periods spanning less than an hour to display tick marks instead of times
 - Fixed bug when displaying vertical schedule when reservation title contained special characters
 - Fixed bug in migration script not copying legacy password correctly
 - Fixed bugs generating API documentation
 
-## 2.4
+## v2.4
 
 - Added restful API
 - Added ability to set different layouts for each day of the week
@@ -1318,7 +1729,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Added ability to disable password reset
 - Numerous bug fixes and minor enhancements
 
-## 2.3
+## v2.3
 
 - Added ability for administrators of all levels to create reports
 - Added ability to create a reservation from the schedule and resource calendar views
@@ -1335,7 +1746,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Added email address to user autocomplete
 - Numerous minor enhancements added and defects fixed
 
-## 2.2
+## v2.2
 
 - Breaking change: For Active Directory authentication, please set your authentication plugin to ActiveDirectory. Ldap plugin is now targeted at non-Active Directory.
 - Added ability to create custom attributes
@@ -1348,7 +1759,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Added ability to start schedules on Today
 - Numerous minor enhancements added and defects fixed
 
-## 2.1
+## v2.1
 
 - Added resource administrator role
 - Added configurable ability for application admins, resource admins and group admins to recieve reservation activity emails
@@ -1360,7 +1771,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Many bug fixes, including: reservation approval, reservation admin delete, resource configuration, admin user creation, group user management, registration CAPTCHA
 - Added Dutch, Spanish, Italian, Japanese, Polish, Catalan languages
 
-## 2.0.2
+## v2.0.2
 
 - Fix and additional logging for migration
 - Minor UI cleanup of validation group error div
@@ -1379,7 +1790,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Fixed bug adding users from the admin tool
 - Fixed javascript single quote bugs
 
-## 2.0.1
+## v2.0.1
 
 - Perfomance improvements on bookings page
 - Added Spanish and Dutch translations
@@ -1389,7 +1800,7 @@ Fork this repo, contribute and help keep it alive - Added intial support for gen
 - Fixed defects when using IE
 - Fixed defect showing an error during log out when using LDAP
 
-## 2.0
+## v2.0
 
 - Fully rewritten from scratch with a focus on testability, extensibility and maintainability
 - All new, more intuitive and friendly user interface

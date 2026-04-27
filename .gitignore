@@ -1,4 +1,5 @@
 /vendor/*
+/node_modules/
 
 /build/*
 /tools/*
@@ -7,6 +8,7 @@
 # Customized Configuration Files
 /config/config.php
 /config/log4php.config.xml
+/config/custom-version.txt
 /config/version-suffix.txt
 **/*.config.php
 

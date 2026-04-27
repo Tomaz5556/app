@@ -94,9 +94,9 @@ EOT;
             echo "<li class='list-group-item'>";
             echo "<a href='#{$category->Name()}' class='d-block small fw-semibold text-dark mb-1'>{$category->Name()}</a>";
             echo "<div class='ms-3'>";
-            echo "<a href='#{$category->Name()}-post' class='d-block small text-muted'>POST Services</a>";
-            echo "<a href='#{$category->Name()}-get' class='d-block small text-muted'>GET Services</a>";
-            echo "<a href='#{$category->Name()}-delete' class='d-block small text-muted'>DELETE Services</a>";
+            echo "<a href='#{$category->Name()}-post' class='d-block small text-muted'>POST Endpoints</a>";
+            echo "<a href='#{$category->Name()}-get' class='d-block small text-muted'>GET Endpoints</a>";
+            echo "<a href='#{$category->Name()}-delete' class='d-block small text-muted'>DELETE Endpoints</a>";
             echo '</div></li>';
         }
 
@@ -112,7 +112,7 @@ EOT;
             echo "<h2 id='{$category->Name()}' class='mt-5'>{$category->Name()}</h2>";
 
             // POST
-            echo "<h6 id='{$category->Name()}-post' class='mt-3 text-muted'>POST Services</h6>";
+            echo "<h6 id='{$category->Name()}-post' class='mt-3 text-muted'>POST Endpoints</h6>";
             if (count($category->Posts()) === 0) {
                 echo "<p class='ms-2'><em>None</em></p>";
             } else {
@@ -129,7 +129,7 @@ EOT;
                     echo "<div id='$collapseId' class='accordion-collapse collapse'>";
                     echo "<div class='accordion-body'>";
                     $request = $md->Request();
-                    self::EchoCommon($md, $service, $app);
+                    self::EchoCommonHeader($md, $service, $app);
                     echo '<h5>Request</h5>';
                     if (is_object($request)) {
                         echo "<div class='code'><pre>" . json_encode($request, JSON_PRETTY_PRINT) . '</pre></div>';
@@ -138,13 +138,14 @@ EOT;
                     } else {
                         echo "<p>Unstructured request of type <i>$request</i></p>";
                     }
+                    self::EchoResponse($md);
                     echo '</div></div></div>';
                 }
                 echo '</div>';
             }
 
             // GET
-            echo "<h6 id='{$category->Name()}-get' class='mt-3 text-muted'>GET Services</h6>";
+            echo "<h6 id='{$category->Name()}-get' class='mt-3 text-muted'>GET Endpoints</h6>";
             if (count($category->Gets()) === 0) {
                 echo "<p class='ms-2'><em>None</em></p>";
             } else {
@@ -167,7 +168,7 @@ EOT;
             }
 
             // DELETE
-            echo "<h6 id='{$category->Name()}-delete' class='mt-3 text-muted'>DELETE Services</h6>";
+            echo "<h6 id='{$category->Name()}-delete' class='mt-3 text-muted'>DELETE Endpoints</h6>";
             if (count($category->Deletes()) === 0) {
                 echo "<p class='ms-2'><em>None</em></p>";
             } else {
@@ -201,7 +202,12 @@ EOT;
 
     private static function EchoCommon(SlimServiceMetadata $md, $endpoint, Slim\Slim $app)
     {
-        $response = $md->Response();
+        self::EchoCommonHeader($md, $endpoint, $app);
+        self::EchoResponse($md);
+    }
+
+    private static function EchoCommonHeader(SlimServiceMetadata $md, $endpoint, Slim\Slim $app)
+    {
         echo "<h5>Name</h5><p>{$md->Name()}</p>";
         echo '<h5>Description</h5><p>' . nl2br($md->Description()) . '</p>';
         echo '<h5>Route</h5><p><code>' . $app->urlFor($endpoint->RouteName()) . '</code></p>';
@@ -212,7 +218,11 @@ EOT;
         if ($endpoint->IsLimitedToAdmin()) {
             echo "<p class='admin'>⚠️ This service is only available to application administrators</p>";
         }
+    }
 
+    private static function EchoResponse(SlimServiceMetadata $md)
+    {
+        $response = $md->Response();
         echo '<h5>Response</h5>';
         if (is_object($response)) {
             echo "<div class='code'><pre>" . json_encode($response, JSON_PRETTY_PRINT) . '</pre></div>';

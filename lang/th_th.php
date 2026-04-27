@@ -15,7 +15,7 @@ class th_th extends en_gb
      */
     protected function _LoadDates()
     {
-        $dates = [];
+        $dates = parent::_LoadDates();
 
         /**
             * Additional code to support the Thai and Buddhist calendar year
@@ -67,7 +67,7 @@ class th_th extends en_gb
      */
     protected function _LoadStrings()
     {
-        $strings = [];
+        $strings = parent::_LoadStrings();
 
         $strings['FirstName'] = 'ชื่อ';
         $strings['LastName'] = 'นามสกุล';
@@ -692,6 +692,7 @@ class th_th extends en_gb
         $strings['NoResourcePermission'] = 'คุณไม่มีสิทธิ์เข้าถึงแหล่งข้อมูลที่ร้องขออย่างน้อยหนึ่งรายการ';
         $strings['ConflictingReservationDates'] = 'มีการจองที่ขัดแย้งกันในวันที่ต่อไปนี้:';
         $strings['StartDateBeforeEndDateRule'] = 'วันที่และเวลาเริ่มต้นต้องอยู่ก่อนวันที่และเวลาสิ้นสุด';
+        $strings['RecurringWithoutTerminationRule'] = 'จำเป็นต้องระบุวันที่สิ้นสุดสำหรับการปิดกั้นที่เกิดซ้ำ';
         $strings['StartIsInPast'] = 'วันที่และเวลาเริ่มต้นไม่สามารถใช้วันที่ผ่านมาแล้วได้';
         $strings['EmailDisabled'] = 'ผู้ดูแลระบบปิดการแจ้งเตือนทางอีเมล';
         $strings['ValidLayoutRequired'] = 'สล็อตต้องมีการให้บริการตลอด 24 ชั่วโมงของวันเริ่มต้นและสิ้นสุดในเวลา 12:00 AM ';
@@ -885,7 +886,7 @@ class th_th extends en_gb
      */
     protected function _LoadDays()
     {
-        $days = [];
+        $days = parent::_LoadDays();
 
         /***
          * DAY NAMES
@@ -911,7 +912,7 @@ class th_th extends en_gb
      */
     protected function _LoadMonths()
     {
-        $months = [];
+        $months = parent::_LoadMonths();
 
         /***
          * MONTH NAMES

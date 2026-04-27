@@ -18,15 +18,15 @@ jobs:
     runs-on: ubuntu-latest
 
     services:
-      mysql:
-        image: mysql:8.0
+      mariadb:
+        image: mirror.gcr.io/library/mariadb:11.4
         env:
-          MYSQL_ROOT_PASSWORD: root
-          MYSQL_DATABASE: librebooking_test
+          MARIADB_ROOT_PASSWORD: root
+          MARIADB_DATABASE: librebooking_test
         ports:
           - 3306:3306
         options: >-
-          --health-cmd="mysqladmin ping -h 127.0.0.1"
+          --health-cmd="mariadb-admin ping -h 127.0.0.1"
           --health-interval=10s
           --health-timeout=5s
           --health-retries=5
@@ -42,7 +42,7 @@ jobs:
           extensions: mysqli, pdo_mysql
 
       - name: Install Composer dependencies
-        uses: ramsey/composer-install@v3
+        uses: ramsey/composer-install@v4
 
       - name: Load database schema
         run: mysql -h 127.0.0.1 -u root -proot librebooking_test < database_schema/create-schema.sql

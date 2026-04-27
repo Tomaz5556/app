@@ -7,7 +7,7 @@ This file contains essential information for AI coding agents working on the Lib
 **LibreBooking** is an open-source resource scheduling and booking system written in PHP. It's a fork of Booked Scheduler that has evolved significantly since 2020.
 
 - **Primary Language**: PHP (>=8.2)
-- **Database**: MySQL (>=5.5)
+- **Database**: MySQL >= 8.0 (2018) or MariaDB >= 10.6 (2021)
 - **Architecture**: Model-View-Presenter (MVP) pattern
 - **Template Engine**: Smarty (version 5.8+)
 - **Frontend**: Bootstrap 5, jQuery
@@ -48,10 +48,10 @@ This file contains essential information for AI coding agents working on the Lib
 
 ### Prerequisites
 
-- PHP >= 8.2 with extensions: ctype, curl, fileinfo, json, mbstring, mysqli, openssl, pdo, pdo_mysql, tokenizer, xml
-- Optional PHP extensions: bcmath, gd, ldap
+- PHP >= 8.2 with extensions: ctype, curl, fileinfo, json, ldap, mbstring, mysqli, openssl, pdo, pdo_mysql, tokenizer, xml
+- Optional PHP extensions: bcmath, gd
 - Composer for dependency management
-- MySQL >= 5.5 for database
+- MySQL >= 8.0 (2018) or MariaDB >= 10.6 (2021) for database
 - Git for version control
 
 ### Initial Setup
@@ -228,6 +228,7 @@ Configuration: `build.xml`
 7. **4-space indentation** for PHP, 2-space for YAML files
 8. **Single quotes** for strings (unless interpolation is needed)
 9. **Short array syntax** - Use `[]` not `array()`
+10. **No magic numbers** - Use named constants, enums, or class constants instead of raw numeric literals. For example, use `CustomAttributeTypes::CHECKBOX` instead of `4`. Code reviews should flag any unexplained numeric literals as magic numbers
 
 ### Design Patterns
 
@@ -315,6 +316,39 @@ feat(API): Add new schedules endpoint
 Add a new schedules endpoint which allows getting the resources of a schedule.
 
 Closes: #2222
+```
+
+### AI Attribution
+
+When an AI coding assistant contributed meaningfully to a commit (writing or
+significantly modifying code, suggesting the fix, generating tests, etc.),
+add an `Assisted-by` trailer to the commit message footer:
+
+```text
+Assisted-by: <AgentName>:<ModelVersion>
+```
+
+**Rules**:
+
+- Place `Assisted-by` in the commit footer, alongside any `Closes:` or
+  `BREAKING CHANGE:` lines
+- Use the agent name and model version that did the work (e.g.
+  `Claude:claude-sonnet-4-6`)
+- Omit the tag when the AI contribution was trivial (e.g. a one-word
+  suggestion accepted unchanged, or only autocomplete)
+- Do **not** add `Assisted-by` for purely mechanical operations (running
+  linters, reformatting, applying `composer fix`)
+
+**Example**:
+
+```text
+fix(reservations): correct overlap check for multi-day bookings
+
+The start-of-day boundary was calculated in UTC rather than the
+schedule's local timezone, causing false conflicts.
+
+Closes: #1234
+Assisted-by: Claude:claude-sonnet-4-6
 ```
 
 ### Pull Request Guidelines
@@ -530,6 +564,8 @@ chmod 755 tpl_c tpl uploads
 - Mock dependencies using PHPUnit mocks
 - Keep tests fast and isolated
 - Test file location should mirror source file structure
+- Name test files and test classes after the class under test with a `Test` suffix (for example, `Pages/Admin/ManageUsersPage.php` -> `tests/Pages/Admin/ManageUsersPageTest.php`)
+- Prefer one primary test file per source class; add extra files only when a clear separation is needed
 
 ### Integration Tests
 

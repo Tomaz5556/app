@@ -19,7 +19,7 @@ class ru_ru extends en_gb
      */
     protected function _LoadStrings()
     {
-        $strings = [];
+        $strings = parent::_LoadStrings();
 
         $strings['FirstName'] = 'Имя';
         $strings['LastName'] = 'Фамилия';
@@ -104,6 +104,7 @@ class ru_ru extends en_gb
         $strings['LaterThisWeek'] = 'Позже на этой неделе';
         $strings['NextWeek'] = 'Следующая неделя';
         $strings['SignOut'] = 'Выйти';
+        $strings['JavascriptRequired'] = 'Для корректной работы этого приложения требуется JavaScript. Пожалуйста, включите JavaScript в настройках вашего браузера.';
         $strings['LayoutDescription'] = 'Запускает на %s, показывая %s дней';
         $strings['AllResources'] = 'Все ресурсы';
         $strings['TakeOffline'] = 'В автономный режим';
@@ -649,6 +650,7 @@ class ru_ru extends en_gb
         $strings['NoResourcePermission'] = 'У вас нет разрешения на доступ к одному или нескольким из требуемых помещений.';
         $strings['ConflictingReservationDates'] = 'Существуют противоречивые Бронирования в следующих сроках:';
         $strings['StartDateBeforeEndDateRule'] = 'Дата и время начала должно быть до даты и времени окончания.';
+        $strings['RecurringWithoutTerminationRule'] = 'Для повторяющихся блокировок требуется дата окончания.';
         $strings['StartIsInPast'] = 'Дата и время начала не может быть в прошлом.';
         $strings['EmailDisabled'] = 'Администратор отключил уведомления по электронной почте.';
         $strings['ValidLayoutRequired'] = 'Слоты должны быть обеспечены для всех 24 часов дня начиная и заканчивая в 12:00 AM.';
@@ -853,7 +855,7 @@ class ru_ru extends en_gb
      */
     protected function _LoadDays()
     {
-        $days = [];
+        $days = parent::_LoadDays();
 
         /***
         DAY NAMES
@@ -879,7 +881,7 @@ class ru_ru extends en_gb
      */
     protected function _LoadMonths()
     {
-        $months = [];
+        $months = parent::_LoadMonths();
 
         /***
         MONTH NAMES

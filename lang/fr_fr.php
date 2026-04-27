@@ -99,6 +99,7 @@ class fr_fr extends en_gb
         $strings['LaterThisWeek'] = 'Reste de la semaine';
         $strings['NextWeek'] = 'La semaine prochaine';
         $strings['SignOut'] = 'Déconnexion';
+        $strings['JavascriptRequired'] = 'Cette application nécessite JavaScript pour fonctionner correctement. Veuillez activer JavaScript dans les paramètres de votre navigateur.';
         $strings['LayoutDescription'] = 'Commence le %s, Affiche %s jours à la fois';
         $strings['AllResources'] = 'Toutes les Ressources';
         $strings['TakeOffline'] = 'Désactiver';
@@ -821,6 +822,7 @@ class fr_fr extends en_gb
         $strings['ConflictingReservationDates'] = 'Il y a des réservations en conflit à la date suivante:';
         $strings['InstancesOverlapRule'] = 'Plusieurs instances de la réservation se chevauchent:';
         $strings['StartDateBeforeEndDateRule'] = 'La date de départ doit être avant la date de fin';
+        $strings['RecurringWithoutTerminationRule'] = 'Une date de fin est requise pour les blocages récurrents.';
         $strings['StartIsInPast'] = 'La date de départ ne peut être passée';
         $strings['EmailDisabled'] = 'L\'administrateur a désactivé les notifications par email.';
         $strings['ValidLayoutRequired'] = 'Les créneaux doivent couvrir 24 heures (de minuit à minuit).';

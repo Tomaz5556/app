@@ -15,7 +15,7 @@ class ar extends en_us
      */
     protected function _LoadDates()
     {
-        $dates = [];
+        $dates = parent::_LoadDates();
 
         $dates['general_date'] = 'm/d/Y';
         $dates['general_datetime'] = 'm/d/Y g:i:s A';
@@ -48,7 +48,7 @@ class ar extends en_us
      */
     protected function _LoadStrings()
     {
-        $strings = [];
+        $strings = parent::_LoadStrings();
 
         $strings['FirstName'] = 'الاسم الأول ';
         $strings['LastName'] = 'الاسم الأخير';
@@ -832,6 +832,7 @@ class ar extends en_us
         $strings['ConflictingReservationDates'] = 'توجد حجوزات متضاربة في التواريخ التالية:';
         $strings['InstancesOverlapRule'] = 'تتداخل بعض حالات سلسلة الحجز:';
         $strings['StartDateBeforeEndDateRule'] = 'يجب أن يكون تاريخ ووقت البدء قبل تاريخ ووقت الانتهاء.';
+        $strings['RecurringWithoutTerminationRule'] = 'تاريخ الانتهاء مطلوب لعمليات الحجب المتكررة.';
         $strings['StartIsInPast'] = 'لا يمكن أن يكون تاريخ ووقت البدء في الماضي.';
         $strings['EmailDisabled'] = 'قام المسؤول بتعطيل إشعارات البريد الإلكتروني.';
         $strings['ValidLayoutRequired'] = 'يجب توفير الخانات الزمنية لجميع الـ 24 ساعة من اليوم التي تبدأ وتنتهي في 00:00.';
@@ -1047,7 +1048,7 @@ class ar extends en_us
      */
     protected function _LoadDays()
     {
-        $days = [];
+        $days = parent::_LoadDays();
 
         /***
          * DAY NAMES
@@ -1073,7 +1074,7 @@ class ar extends en_us
      */
     protected function _LoadMonths()
     {
-        $months = [];
+        $months = parent::_LoadMonths();
 
         /***
          * MONTH NAMES

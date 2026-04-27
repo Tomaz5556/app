@@ -731,7 +731,7 @@
 
 	<div id="customLayoutDialog" class="modal fade" tabindex="-1" role="dialog"
 		aria-labelledby="customLayoutDialogLabel" aria-hidden="true">
-		<div class="modal-dialog">
+		<div class="modal-dialog modal-lg">
 			<div class="modal-content">
 				<div class="modal-header">
 					<h5 class="modal-title" id="customLayoutDialogLabel">{translate key=ChangeLayout}</h5>
@@ -789,8 +789,8 @@
 						</div>
 						<div class="form-group">
 							<label class="fw-bold" for="maximumConcurrent">{translate key=Resources}</label>
-							<input type="number" class="form-control required" min="0" id="maximumConcurrent"
-								{formname key=MAXIMUM_CONCURRENT_RESERVATIONS} />
+							<input type="number" class="form-control form-control-sm required" min="0"
+								id="maximumConcurrent" {formname key=MAXIMUM_CONCURRENT_RESERVATIONS} />
 						</div>
 						<div class="clearfix"></div>
 					</div>
@@ -824,7 +824,7 @@
 						<div class="form-group">
 							<label class="fw-bold"
 								for="resourcesPerReservationResources">{translate key=Resources}</label>
-							<input type="number" class="form-control required" min="0"
+							<input type="number" class="form-control form-control-sm required" min="0"
 								id="resourcesPerReservationResources"
 								{formname key=MAXIMUM_RESOURCES_PER_RESERVATION} />
 						</div>
@@ -848,7 +848,7 @@
 	{jsfile src="ajax-helpers.js"}
 	{jsfile src="date-helper.js"}
 	{jsfile src="admin/schedule.js"}
-	{jsfile src="js/jquery.form-3.09.min.js"}
+	{vendor_js src="jquery-form/3.09/jquery.form-3.09.min.js"}
 
 	<script type="text/javascript">
 		function setUpEditables() {
@@ -944,7 +944,8 @@
 						today: "{{translate key=Today}|escape:'javascript'}",
 						month: "{{translate key=Month}|escape:'javascript'}",
 						week: "{{translate key=Week}|escape:'javascript'}",
-						day: "{{translate key=Day}|escape:'javascript'}"
+						day: "{{translate key=Day}|escape:'javascript'}",
+						list: "{{translate key=List}|escape:'javascript'}"
 					},
 					defaultDate: '{Date::Now()->ToTimezone({$Timezone})->Format("Y-m-d")}',
 					eventsUrl: '{$smarty.server.SCRIPT_NAME}'

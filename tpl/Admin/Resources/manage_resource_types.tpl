@@ -23,13 +23,13 @@
 							<label class="fw-bold" for="resourceTypeName">{translate key='Name'}<i
 									class="bi bi-asterisk text-danger align-top" style="font-size: 0.5rem;"></i></label>
 							<div class="form-group">
-								<input type="text" class="form-control required has-feedback" maxlength="85" required
-									{formname key=RESOURCE_TYPE_NAME} id="resourceTypeName" />
+								<input type="text" class="form-control form-control-sm required has-feedback"
+									maxlength="85" required {formname key=RESOURCE_TYPE_NAME} id="resourceTypeName" />
 							</div>
 							<label class="fw-bold ms-3" for="resourceTypeDesc">{translate key='Description'}</label>
 							<div class="form-group">
-								<textarea class="form-control" rows="1" {formname key=RESOURCE_TYPE_DESCRIPTION}
-									id="resourceTypeDesc"></textarea>
+								<textarea class="form-control form-control-sm" rows="1"
+									{formname key=RESOURCE_TYPE_DESCRIPTION} id="resourceTypeDesc"></textarea>
 							</div>
 						</div>
 						<div class="accordion-footer border-top pt-3">
@@ -75,7 +75,7 @@
 							{if $AttributeList|default:array()|count > 0}
 								<td>
 									{foreach from=$AttributeList item=attribute}
-										{include file='Admin/InlineAttributeEdit.tpl' id=$id attribute=$attribute value=$type->GetAttributeValue($attribute->Id())}
+										{include file='Admin/InlineAttributeEdit.tpl' url="{$smarty.server.SCRIPT_NAME}?action={ManageResourceTypesActions::ChangeAttribute}" id=$id attribute=$attribute value=$type->GetAttributeValue($attribute->Id())}
 									{/foreach}
 								</td>
 							{/if}
@@ -101,13 +101,13 @@
 						<div class="form-group has-feedback">
 							<label for="editName" class="fw-bold">{translate key=Name}<i
 									class="bi bi-asterisk text-danger align-top" style="font-size: 0.5rem;"></i></label>
-							<input type="text" id="editName" class="form-control required" required="required"
-								maxlength="85" {formname key=RESOURCE_TYPE_NAME} />
+							<input type="text" id="editName" class="form-control form-control-sm required"
+								required="required" maxlength="85" {formname key=RESOURCE_TYPE_NAME} />
 						</div>
 						<div class="form-group">
 							<label for="editDescription" class="fw-bold">{translate key='Description'}</label>
-							<textarea class="form-control" rows="1" {formname key=RESOURCE_TYPE_DESCRIPTION}
-								id="editDescription"></textarea>
+							<textarea class="form-control form-control-sm" rows="2"
+								{formname key=RESOURCE_TYPE_DESCRIPTION} id="editDescription"></textarea>
 						</div>
 					</div>
 					<div class="modal-footer">
@@ -149,7 +149,7 @@
 	{include file="javascript-includes.tpl" InlineEdit=true DataTable=true}
 	{jsfile src="ajax-helpers.js"}
 	{jsfile src="admin/resource-types.js"}
-	{jsfile src="js/jquery.form-3.09.min.js"}
+	{vendor_js src="jquery-form/3.09/jquery.form-3.09.min.js"}
 	{datatable tableId=$tableId}
 	<script type="text/javascript">
 		function hidePopoversWhenClickAway() {

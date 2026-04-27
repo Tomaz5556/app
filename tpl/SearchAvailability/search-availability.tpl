@@ -91,15 +91,13 @@
                     <div class="d-flex flex-wrap">
                         <div class="form-group px-2">
                             <label for="beginDate" class="visually-hidden">{translate key=BeginDate}</label>
-                            <input type="date" id="beginDate" class="form-control form-control-sm dateinput"
-                                placeholder="{translate key=BeginDate}" disabled="disabled" />
-                            <input type="hidden" id="formattedBeginDate" {formname key=BEGIN_DATE} />
+                            <input type="text" id="BeginDate" class="form-control form-control-sm"
+                                placeholder="{translate key=BeginDate}" disabled="disabled" {formname key=BEGIN_DATE} />
                         </div>
                         <div class="form-group">
                             <label for="endDate" class="visually-hidden">{translate key=EndDate}</label>
-                            <input type="date" id="endDate" class="form-control form-control-sm dateinput"
-                                placeholder="{translate key=EndDate}" disabled="disabled" />
-                            <input type="hidden" id="formattedEndDate" {formname key=END_DATE} />
+                            <input type="text" id="EndDate" class="form-control form-control-sm"
+                                placeholder="{translate key=EndDate}" disabled="disabled" {formname key=END_DATE} />
                         </div>
                     </div>
                 </div>
@@ -133,11 +131,11 @@
                     </div>
 
                     {foreach from=$ResourceAttributes item=attribute}
-                        {control type="AttributeControl" attribute=$attribute align='vertical' searchmode=true namePrefix='r' class="col-sm-6 col-12" inputClass="input-sm"}
+                        {control type="AttributeControl" attribute=$attribute align='vertical' searchmode=true namePrefix='r' class="col-sm-6 col-12"}
                     {/foreach}
 
                     {foreach from=$ResourceTypeAttributes item=attribute}
-                        {control type="AttributeControl" attribute=$attribute align='vertical' searchmode=true namePrefix='rt' class="col-sm-6 col-12" inputClass="input-sm"}
+                        {control type="AttributeControl" attribute=$attribute align='vertical' searchmode=true namePrefix='rt' class="col-sm-6 col-12"}
                     {/foreach}
                 </div>
 
@@ -157,18 +155,18 @@
     {csrf_token}
 
     {include file="javascript-includes.tpl" Select2=true}
-    {jsfile src="js/tree.jquery.js"}
-    {jsfile src="js/jquery.cookie.js"}
+    {vendor_js src="jqtree/1.8.11/js/tree.jquery.js"}
+    {vendor_js src="jquery-cookie/1.3.1/js/jquery.cookie.js"}
     {jsfile src="ajax-helpers.js"}
     {jsfile src="availability-search.js"}
     {jsfile src="resourcePopup.js"}
     {jsfile src="date-helper.js"}
     {jsfile src="recurrence.js"}
 
-    {control type="DatePickerSetupControl" ControlId="beginDate" AltId="formattedBeginDate" DefaultDate=$StartDate}
-    {control type="DatePickerSetupControl" ControlId="endDate" AltId="formattedEndDate" DefaultDate=$StartDate}
-    {control type="DatePickerSetupControl" ControlId="EndRepeat" AltId="formattedEndRepeat" DefaultDate=$StartDate}
-    {control type="DatePickerSetupControl" ControlId="RepeatDate" AltId="formattedRepeatDate"}
+    {control type="DatePickerSetupControl" ControlId="BeginDate" DefaultDate=$Today MinDate=$Today}
+    {control type="DatePickerSetupControl" ControlId="EndDate" DefaultDate=$Tomorrow MinDate=$Today}
+    {control type="DatePickerSetupControl" ControlId="EndRepeat" DefaultDate=$Tomorrow}
+    {control type="DatePickerSetupControl" ControlId="RepeatDate" Multiple=false}
 
     <script type="text/javascript">
         $(document).ready(function() {

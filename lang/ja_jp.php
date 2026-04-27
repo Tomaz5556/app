@@ -15,7 +15,7 @@ class ja_jp extends en_gb
      */
     protected function _LoadDates()
     {
-        $dates = [];
+        $dates = parent::_LoadDates();
 
         $dates['general_date'] = 'Y-m-d';
         $dates['general_datetime'] = 'Y-m-d H:i:s';
@@ -48,7 +48,7 @@ class ja_jp extends en_gb
      */
     protected function _LoadStrings()
     {
-        $strings = [];
+        $strings = parent::_LoadStrings();
 
         $strings['FirstName'] = '名';
         $strings['LastName'] = '姓';
@@ -135,6 +135,7 @@ class ja_jp extends en_gb
         $strings['LaterThisWeek'] = '今週(明後日以後)';
         $strings['NextWeek'] = '翌週';
         $strings['SignOut'] = 'サインアウト';
+        $strings['JavascriptRequired'] = 'このアプリケーションを正しく動作させるにはJavaScriptが必要です。ブラウザの設定でJavaScriptを有効にしてください。';
         $strings['LayoutDescription'] = '一度に %s から、 %s 日間を表示';
         $strings['AllResources'] = '全てのリソース';
         $strings['TakeOffline'] = 'オフラインにする';
@@ -828,6 +829,7 @@ class ja_jp extends en_gb
         $strings['NoResourcePermission'] = 'リソースを使用する権限がありません';
         $strings['ConflictingReservationDates'] = '次の日時で予約が重なっています:';
         $strings['StartDateBeforeEndDateRule'] = '開始日時を終了よりも前にしてください。';
+        $strings['RecurringWithoutTerminationRule'] = '繰り返しブラックアウトには終了日が必要です。';
         $strings['StartIsInPast'] = '開始時刻を過ぎていいます。';
         $strings['EmailDisabled'] = '管理者がメールでの通知を無効にしています。';
         $strings['ValidLayoutRequired'] = '時間枠は一日の最初から最後(12:00 AM)までの24時間全てを網羅するようにしてください。';

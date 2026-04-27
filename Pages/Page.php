@@ -46,6 +46,7 @@ abstract class Page implements IPage
         $this->smarty->assign('Timezone', $userSession->Timezone);
         $this->smarty->assign('Charset', $resources->Charset);
         $this->smarty->assign('CurrentLanguage', $resources->CurrentLanguage);
+        $this->smarty->assign('AvailableLanguages', $resources->AvailableLanguages);
         $this->smarty->assign('HtmlLang', $resources->HtmlLang);
         $this->smarty->assign('HtmlTextDirection', $resources->TextDirection);
         $appTitle = Configuration::Instance()->GetKey(ConfigKeys::APP_TITLE);
@@ -59,6 +60,7 @@ abstract class Page implements IPage
         $this->smarty->assign('CalendarJSFile', $resources->CalendarLanguageFile);
 
         $this->smarty->assign('LoggedIn', $userSession->IsLoggedIn());
+        $this->smarty->assign('CSRFToken', $userSession->CSRFToken);
         $this->smarty->assign('Version', Configuration::VERSION);
         $this->smarty->assign('DisplayVersion', $this->GetDisplayVersion());
         $this->smarty->assign('Path', $this->path);
@@ -443,7 +445,6 @@ abstract class Page implements IPage
         if ($config->GetKey(ConfigKeys::SECURITY_HEADERS, new BooleanConverter())) {
             header('Strict-Transport-Security: ' . $config->GetKey(ConfigKeys::SECURITY_STRICT_TRANSPORT));
             header('X-Frame-Options: ' . $config->GetKey(ConfigKeys::SECURITY_X_FRAME));
-            header('X-XSS-Protection: ' . $config->GetKey(ConfigKeys::SECURITY_X_XSS));
             header('X-Content-Type-Options: ' . $config->GetKey(ConfigKeys::SECURITY_X_CONTENT_TYPE));
             header('Content-Security-Policy: ' . $config->GetKey(ConfigKeys::SECURITY_CONTENT_SECURITY_POLICY));
         }

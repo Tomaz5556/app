@@ -122,8 +122,8 @@ function RegisterAuthentication(SlimServer $server, SlimWebServiceRegistry $regi
     );
 
     $category = new SlimWebServiceRegistryCategory('Authentication');
-    $category->AddPost('SignOut/', [$webService, 'SignOut'], WebServices::Logout);
-    $category->AddPost('Authenticate/', [$webService, 'Authenticate'], WebServices::Login);
+    $category->AddPost('SignOut', [$webService, 'SignOut'], WebServices::Logout);
+    $category->AddPost('Authenticate', [$webService, 'Authenticate'], WebServices::Login);
     $registry->AddCategory($category);
 }
 
@@ -152,7 +152,13 @@ function RegisterResources(SlimServer $server, SlimWebServiceRegistry $registry)
 {
     $resourceRepository = new ResourceRepository();
     $attributeService = new AttributeService(new AttributeRepository());
-    $webService = new ResourcesWebService($server, $resourceRepository, $attributeService, new ReservationViewRepository());
+    $webService = new ResourcesWebService(
+        server: $server,
+        resourceRepository: $resourceRepository,
+        attributeService: $attributeService,
+        reservationRepository: new ReservationViewRepository(),
+        scheduleRepository: new ScheduleRepository()
+    );
     $writeWebService = new ResourcesWriteWebService($server, new ResourceSaveController($resourceRepository, new ResourceRequestValidator($attributeService)));
 
     $roGroupId = GetConfigGroup(ConfigKeys::API_RESOURCES_RO_GROUP);
